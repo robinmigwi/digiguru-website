@@ -1,0 +1,33 @@
+{
+  "platform_rules": {
+    "instagram": {"role": "visual storytelling and brand recognition", "default_video": "15 to 45 seconds", "style": "polished, visual, concise, strong on screen opening"},
+    "facebook": {"role": "relatable business education and shareable scenarios", "default_video": "30 to 90 seconds", "style": "clear, conversational, explanatory"},
+    "linkedin": {"role": "founder credibility, insight and commercial education", "default_video": "30 to 120 seconds", "style": "human, story led, thoughtful, evidence first"},
+    "tiktok": {"role": "discovery, sharp POV and fast pattern interruption", "default_video": "15 to 45 seconds", "style": "fast hook, conversational, native and direct"}
+  },
+  "idea_score": {
+    "business_relevance": 25,
+    "customer_pain": 20,
+    "novelty": 15,
+    "visual_potential": 15,
+    "digiguru_point_of_view": 15,
+    "conversion_potential": 10
+  },
+  "publish_threshold": 70,
+  "research_topics": [
+    "lead generation",
+    "WhatsApp sales",
+    "customer service",
+    "sales follow up",
+    "online ordering",
+    "appointments",
+    "customer experience",
+    "Meta ads",
+    "TikTok marketing",
+    "website conversion",
+    "CRM",
+    "small business marketing",
+    "Kenyan business",
+    "conversational commerce"
+  ]
+}
