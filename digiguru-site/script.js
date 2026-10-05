@@ -88,3 +88,28 @@ updateProgress();
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 if (year) year.textContent = new Date().getFullYear();
+
+
+const leakNodes = Array.from(document.querySelectorAll('.leak-node'));
+let leakTimer;
+function cycleLeakJourney() {
+  if (!leakNodes.length) return;
+  let active = 0;
+  leakNodes.forEach((node) => node.classList.remove('journey-active'));
+  leakNodes[active].classList.add('journey-active');
+  leakTimer = window.setInterval(() => {
+    leakNodes.forEach((node) => node.classList.remove('journey-active'));
+    active = (active + 1) % leakNodes.length;
+    leakNodes[active].classList.add('journey-active');
+  }, 1300);
+}
+const leakScene = document.querySelector('.leak-scene');
+if (leakScene) {
+  const leakObserver = new IntersectionObserver((entries, observer) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      cycleLeakJourney();
+      observer.disconnect();
+    }
+  }, { threshold: 0.25 });
+  leakObserver.observe(leakScene);
+}
