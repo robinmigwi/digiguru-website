@@ -1,0 +1,38 @@
+{
+  "last_reviewed": "2026-10-05",
+  "approved": [
+    {
+      "id": "positioning-001",
+      "fact": "DigiGuru turns marketing attention into business action.",
+      "use": "core positioning",
+      "verification_required": false
+    },
+    {
+      "id": "system-001",
+      "fact": "DigiGuru connects ads, websites and WhatsApp into a customer journey and builds a conversation layer around the business.",
+      "use": "explaining the system",
+      "verification_required": false
+    },
+    {
+      "id": "capability-001",
+      "fact": "The conversation layer can be designed around business information such as products, services, offers, FAQs, policies and availability.",
+      "use": "Concierge explanation",
+      "verification_required": false
+    },
+    {
+      "id": "capability-002",
+      "fact": "The wider journey can connect conversations to actions such as bookings, orders, enquiries, quotes, calendars, CRM records, catalogues and human handoffs.",
+      "use": "system and impact content",
+      "verification_required": false
+    }
+  ],
+  "restricted_until_verified": [
+    "client results",
+    "revenue claims",
+    "lead volume claims",
+    "conversion rates",
+    "statistics",
+    "customer quotes",
+    "partnership announcements"
+  ]
+}
