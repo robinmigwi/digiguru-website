@@ -127,3 +127,7 @@ button{font:inherit}
   .business-actions>div{border-right:0!important;border-top:1px solid rgba(13,42,33,.12)}
   .business-actions>div:first-child{border-top:0}
 }
+
+.leak-node{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.leak-node.journey-active{transform:translateY(-4px);border-color:rgba(26,157,140,.55);box-shadow:0 14px 32px rgba(13,42,33,.1)}
+.leak-node.journey-active .delay-label{opacity:1}
