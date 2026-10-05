@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "last_updated": null,
+  "observations": [],
+  "winning_hooks": [],
+  "winning_topics": [],
+  "winning_formats": [],
+  "winning_lengths": [],
+  "winning_ctas": [],
+  "platform_preferences": {
+    "instagram": {},
+    "facebook": {},
+    "linkedin": {},
+    "tiktok": {}
+  }
+}
