@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DigiGuru Content Item",
+  "type": "object",
+  "required": ["id", "idea", "franchise", "score", "platforms", "status"],
+  "properties": {
+    "id": {"type": "string"},
+    "idea": {"type": "string"},
+    "franchise": {"type": "string"},
+    "angle": {"type": "string"},
+    "hook": {"type": "string"},
+    "score": {"type": "number", "minimum": 0, "maximum": 100},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "platforms": {"type": "array", "items": {"enum": ["instagram", "facebook", "linkedin", "tiktok"]}},
+    "verification_required": {"type": "boolean"},
+    "status": {"enum": ["idea", "briefed", "produced", "scheduled", "published", "measured", "archived"]}
+  }
+}
