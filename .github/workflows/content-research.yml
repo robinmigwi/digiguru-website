@@ -1,0 +1,31 @@
+name: DigiGuru Content Research
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run research agent
+        env:
+          OPENAI_API_KEY: \${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: \${{ secrets.OPENAI_MODEL }}
+        run: node content-os/src/research.mjs
+
+      - name: Commit research snapshot
+        run: |
+          git config user.name "DigiGuru Content OS"
+          git config user.email "content-os@digiguru.local"
+          git add content-os/data/research
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(content-os): add daily research snapshot"
+          git push
