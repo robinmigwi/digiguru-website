@@ -1,0 +1,23 @@
+{
+  "brand": "DigiGuru",
+  "positioning": "We turn marketing attention into business action.",
+  "core_problem": "The gap between getting a lead and helping that lead take the next step.",
+  "audience": ["business owners", "founders", "customer facing teams", "marketing decision makers"],
+  "platforms": ["instagram", "facebook", "linkedin", "tiktok"],
+  "primary_format": "video",
+  "content_goal": "Move attention toward recognition, trust, conversation and commercial action.",
+  "voice": {
+    "tone": ["clear", "warm", "direct", "commercial", "curious"],
+    "avoid": ["generic AI hype", "technical jargon", "empty motivational content", "fear based claims", "invented results", "corporate filler"]
+  },
+  "content_franchises": [
+    {"name": "Lead Leaks", "purpose": "Show where customer intent disappears after an ad, website visit or message."},
+    {"name": "Business Breakdowns", "purpose": "Break familiar customer journeys into moments that create or lose momentum."},
+    {"name": "DigiGuru Builds", "purpose": "Show real systems, interfaces, journeys and work being built."},
+    {"name": "Business POV", "purpose": "Founder led observations and strong points of view about customer journeys and selling."},
+    {"name": "Real Business Examples", "purpose": "Use verified client situations and approved evidence to demonstrate the system."},
+    {"name": "What Would You Do?", "purpose": "Create interactive scenarios around real customer questions and business responses."}
+  ],
+  "conversion_path": ["attention", "recognition", "trust", "conversation", "business opportunity"],
+  "approved_ctas": ["See how it works", "Start a conversation", "Look at what happens after the click", "Talk to DigiGuru"]
+}
