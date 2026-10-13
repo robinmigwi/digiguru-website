@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+*.log
+/voiceovers/
+/data/temp/
+/data/cache/
