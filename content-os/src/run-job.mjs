@@ -148,8 +148,17 @@ try {
   if (action === "analytics") {
     await hydrateHistory("analytics", outputDirs.analytics, 60);
     await hydrateLatest("learning-state", path.join(ROOT, "data", "learning"));
-    runScript("analytics.mjs");
-    await persistLatest("analytics", outputDirs.analytics);
+    const analyticsConfigured = Boolean(
+      process.env.BUFFER_API_KEY
+      && process.env.BUFFER_ORGANIZATION_ID
+      && process.env.BUFFER_CHANNELS_JSON
+    );
+    if (analyticsConfigured) {
+      runScript("analytics.mjs");
+      await persistLatest("analytics", outputDirs.analytics);
+    } else {
+      console.log("Buffer analytics credentials are not configured. Skipping metric collection; existing history will remain unchanged.");
+    }
 
     runScript("learn.mjs");
     const memPath = path.join(ROOT, "data", "learning", "creative-memory.json");
@@ -157,7 +166,10 @@ try {
     await recordArtifact("learning-state", "learning-state:creative-memory.json", memory);
     await persistReport();
 
-    await updateJob(job.id, { status: "succeeded", summary: "Analytics snapshots and creative learning report updated.", logText: fullLog });
+    const summary = analyticsConfigured
+      ? "Analytics snapshots and creative learning report updated."
+      : "Metrics collection skipped because Buffer is not configured; the learning report was refreshed from existing history.";
+    await updateJob(job.id, { status: "succeeded", summary, logText: fullLog });
   }
 } catch (error) {
   fullLog += "\nFAILED: " + (error.stack || error.message || String(error)) + "\n";
