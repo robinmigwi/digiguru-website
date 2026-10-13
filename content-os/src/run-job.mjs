@@ -75,8 +75,8 @@ function runScript(script) {
     maxBuffer: 10 * 1024 * 1024,
     timeout: 40 * 60 * 1000
   });
-  if (proc.stdout) process.stdout.write(proc.stdout);
-  if (proc.stderr) process.stderr.write(proc.stderr);
+  if (proc.stdout) { fullLog += proc.stdout; process.stdout.write(proc.stdout); }
+  if (proc.stderr) { fullLog += proc.stderr; process.stderr.write(proc.stderr); }
   if (proc.error) throw proc.error;
   if (proc.status !== 0) throw new Error(script + " exited with status " + proc.status);
 }
@@ -154,7 +154,7 @@ try {
     runScript("learn.mjs");
     const memPath = path.join(ROOT, "data", "learning", "creative-memory.json");
     const memory = JSON.parse(await fs.readFile(memPath, "utf8"));
-    await recordArtifact("learning-state", "learning-state:creative-memory", memory);
+    await recordArtifact("learning-state", "learning-state:creative-memory.json", memory);
     await persistReport();
 
     await updateJob(job.id, { status: "succeeded", summary: "Analytics snapshots and creative learning report updated.", logText: fullLog });
