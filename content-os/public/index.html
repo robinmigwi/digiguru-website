@@ -85,7 +85,7 @@ function showToast(s){const t=$("#toast");t.textContent=s;t.classList.add("show"
 function statusClass(s){return ["failed","error"].includes(String(s).toLowerCase())?"fail":["running","queued","waiting_for_video","missing_channel_id","plan_only"].includes(String(s).toLowerCase())?"wait":""}
 function renderIdeas(items){
  const box=$("#ideas");
- if(!items?.length){box.innerHTML='<div class="empty">No generated ideas yet. Run research, then build the week's content.</div>';$("#ideas-count").textContent="No content";return}
+ if(!items?.length){box.innerHTML='<div class="empty">No generated ideas yet. Run research, then build the weekly content.</div>';$("#ideas-count").textContent="No content";return}
  $("#ideas-count").textContent=items.length+" core ideas";
  box.innerHTML=items.map((item,i)=> {
   const platforms=Object.keys(item.platform_variants||{});
