@@ -89,7 +89,7 @@ async function collectWebSignals() {
           published: result.published_date || "",
           source: result.url ? new URL(result.url).hostname : "web search",
           source_type: "web_search",
-          description: String(result.content || "").slice(0, 1800),
+          description: String(result.content || "").slice(0, 900),
           relevance_score: result.score ?? null
         });
       }
@@ -108,7 +108,7 @@ async function collectSignals() {
         headers: { "user-agent": "DigiGuru-Content-OS/0.1" }
       });
       if (!response.ok) continue;
-      collected.push(...parseItems(await response.text()));
+      collected.push(...parseItems(await response.text()).slice(0, 8));
     } catch {
       // One failed source should not stop the research cycle.
     }
@@ -121,7 +121,7 @@ async function collectSignals() {
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
-  }).slice(0, 100);
+  }).slice(0, 80);
 }
 
 function extractJson(text) {
