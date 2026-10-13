@@ -112,7 +112,13 @@ async function callModel(signals) {
   }
 
   const data = await response.json();
-  return extractJson(data.output_text || "");
+  const outputText = data.output_text || (data.output || [])
+    .filter((item) => item.type === "message")
+    .flatMap((item) => item.content || [])
+    .filter((part) => part.type === "output_text")
+    .map((part) => part.text || "")
+    .join("\n");
+  return extractJson(outputText);
 }
 
 const signals = await collectSignals();
