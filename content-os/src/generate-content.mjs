@@ -75,7 +75,13 @@ async function generate(research) {
     throw new Error("OpenAI request failed: " + response.status + " " + await response.text());
   }
   const data = await response.json();
-  return parseJson(data.output_text || "");
+  const outputText = data.output_text || (data.output || [])
+    .filter((item) => item.type === "message")
+    .flatMap((item) => item.content || [])
+    .filter((part) => part.type === "output_text")
+    .map((part) => part.text || "")
+    .join("\n");
+  return parseJson(outputText);
 }
 
 const research = await latestJson(RESEARCH_DIR);
