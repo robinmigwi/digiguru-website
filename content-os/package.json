@@ -5,15 +5,18 @@
   "type": "module",
   "description": "Research, creative generation, video production, distribution and learning automation for DigiGuru.",
   "scripts": {
-    "research": "node src/research.mjs",
+    "start": "node src/server.mjs",
+    "research": "node src/run-job.mjs research",
     "generate": "node src/generate-content.mjs",
     "render": "node src/render-video.mjs",
     "publish": "node src/publish.mjs",
-    "analytics": "node src/analytics.mjs",
+    "analytics": "node src/run-job.mjs analytics",
+    "pipeline": "node src/run-job.mjs pipeline",
     "learn": "node src/learn.mjs",
     "validate": "node src/validate.mjs"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.800.0"
+    "@aws-sdk/client-s3": "^3.800.0",
+    "pg": "^8.16.3"
   }
 }
