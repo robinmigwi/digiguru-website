@@ -72,7 +72,7 @@ async function collectWebSignals() {
           topic: "general",
           max_results: 5,
           time_range: "month",
-          country: "kenya",
+          country: "Kenya",
           include_answer: false,
           include_raw_content: false
         })
