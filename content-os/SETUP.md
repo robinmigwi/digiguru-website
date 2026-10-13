@@ -8,13 +8,13 @@ The website repository deploys through Netlify. Keep the Content OS away from it
 
 Start with `OPENAI_API_KEY` and optional `OPENAI_MODEL`. Add `TAVILY_API_KEY` if you want the Scout to supplement the RSS feeds with three rotating web searches per run. Without Tavily, RSS research still runs. Confirm that research and content generation work first.
 
-Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 master videos once the output looks good. Later, set `RENDER_ALL_PLATFORMS=true` to create distinct video variants for each social network; set `MAX_RENDERS_PER_RUN=12` to cap that at three ideas across all four platforms.
+Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 master videos once the output looks good. Add Cloudflare R2 credentials to keep generated video URLs persistent in a public bucket. Later, set `RENDER_ALL_PLATFORMS=true` to create distinct video variants for each social network; set `MAX_RENDERS_PER_RUN=12` to cap that at three ideas across all four platforms.
 
 Then add `BUFFER_API_KEY`, `BUFFER_ORGANIZATION_ID` and `BUFFER_CHANNELS_JSON`. The first runs create drafts by default. Review the text and video quality before allowing auto queueing.
 
 For true unattended distribution, explicitly set `ENABLE_AUTO_PUBLISH=true` and `CONTENT_PUBLISH_MODE=queue`.
 
-Voiceover is optional. Only enable it after testing a voice and adding all ElevenLabs and Cloudflare R2 credentials.
+Voiceover is optional. Only enable it after testing a voice and adding the ElevenLabs API key and voice ID. Cloudflare R2 must also be configured for the system to store the generated audio.
 
 ## Step 3: Test in order
 
