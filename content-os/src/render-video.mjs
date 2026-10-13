@@ -17,17 +17,19 @@ if (!apiKey) {
 }
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const enabledVoice = process.env.ENABLE_VOICEOVER === "true"
-  && process.env.ELEVENLABS_API_KEY
-  && process.env.ELEVENLABS_VOICE_ID
-  && process.env.R2_ACCOUNT_ID
+const storageAvailable = Boolean(
+  process.env.R2_ACCOUNT_ID
   && process.env.R2_ACCESS_KEY_ID
   && process.env.R2_SECRET_ACCESS_KEY
   && process.env.R2_BUCKET
-  && process.env.R2_PUBLIC_BASE_URL;
+  && process.env.R2_PUBLIC_BASE_URL
+);
+const enabledVoice = process.env.ENABLE_VOICEOVER === "true"
+  && Boolean(process.env.ELEVENLABS_API_KEY && process.env.ELEVENLABS_VOICE_ID)
+  && storageAvailable;
 
 let s3;
-if (enabledVoice) {
+if (storageAvailable) {
   s3 = new S3Client({
     region: "auto",
     endpoint: "https://" + process.env.R2_ACCOUNT_ID + ".r2.cloudflarestorage.com",
@@ -63,6 +65,20 @@ async function createVoiceover(text, key) {
     Key: key,
     Body: bytes,
     ContentType: "audio/mpeg"
+  }));
+  return process.env.R2_PUBLIC_BASE_URL.replace(/\/$/, "") + "/" + key;
+}
+
+async function storeVideoPermanently(renderUrl, key) {
+  if (!storageAvailable) return null;
+  const response = await fetch(renderUrl);
+  if (!response.ok) throw new Error("Could not download completed render: " + response.status);
+  const bytes = Buffer.from(await response.arrayBuffer());
+  await s3.send(new PutObjectCommand({
+    Bucket: process.env.R2_BUCKET,
+    Key: key,
+    Body: bytes,
+    ContentType: "video/mp4"
   }));
   return process.env.R2_PUBLIC_BASE_URL.replace(/\/$/, "") + "/" + key;
 }
@@ -219,11 +235,15 @@ for (const item of eligible) {
     }
     const source = buildRenderScript(item, variantKey, voiceUrl);
     const result = await requestRender(source, item.id + "-" + platform);
+    const permanentKey = "content-os/renders/" + safeSlug(item.id + "-" + platform) + "-" + result.id + ".mp4";
+    const permanentUrl = await storeVideoPermanently(result.url, permanentKey);
     item.video_assets = item.video_assets || [];
     item.video_assets.push({
       platform,
       render_id: result.id,
-      url: result.url,
+      url: permanentUrl || result.url,
+      render_url: result.url,
+      storage_persistent: Boolean(permanentUrl),
       snapshot_url: result.snapshot_url || null,
       rendered_at: new Date().toISOString()
     });
