@@ -36,6 +36,7 @@ npm run validate
 Required for research and writing:
 - `OPENAI_API_KEY`
 - Optional `OPENAI_MODEL` (defaults to `gpt-5-mini`)
+- Optional `TAVILY_API_KEY` for three rotating fresh web searches per research run. If omitted, the Scout uses the configured RSS feeds only.
 
 For video rendering:
 - `CREATOMATE_API_KEY`
