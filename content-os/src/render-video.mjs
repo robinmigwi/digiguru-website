@@ -200,8 +200,11 @@ async function requestRender(source, metadata) {
 }
 
 const eligible = packageData.items.filter((item) => item.score >= 70 && !item.verification_required);
-const maxRenders = Math.max(1, Number(process.env.MAX_RENDERS_PER_RUN) || 3);
 const renderAllPlatforms = process.env.RENDER_ALL_PLATFORMS === "true";
+const configuredRenderLimit = Number(process.env.MAX_RENDERS_PER_RUN);
+const maxRenders = Number.isFinite(configuredRenderLimit) && configuredRenderLimit > 0
+  ? configuredRenderLimit
+  : (renderAllPlatforms ? eligible.length * BRAND.platforms.length : 3);
 let rendered = 0;
 for (const item of eligible) {
   const platforms = renderAllPlatforms ? BRAND.platforms : ["master"];
