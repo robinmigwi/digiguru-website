@@ -40,8 +40,8 @@ Required for research and writing:
 
 For video rendering:
 - `CREATOMATE_API_KEY`
-- Optional `MAX_RENDERS_PER_RUN` (default 3)
-- Optional `RENDER_ALL_PLATFORMS` (default false; true creates four platform specific renders per idea)
+- Optional `MAX_RENDERS_PER_RUN` (default 3 master videos per week)
+- Optional `RENDER_ALL_PLATFORMS` (default false; true creates all four platform specific videos per idea unless a render cap is set)
 
 For social distribution and analytics:
 - `BUFFER_API_KEY`
