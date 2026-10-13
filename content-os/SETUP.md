@@ -8,7 +8,7 @@ The website repository deploys through Netlify. Keep the Content OS away from it
 
 Start with `OPENAI_API_KEY` and optional `OPENAI_MODEL`. Add `TAVILY_API_KEY` if you want the Scout to supplement the RSS feeds with three rotating web searches per run. Without Tavily, RSS research still runs. Confirm that research and content generation work first.
 
-Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 once the output looks good.
+Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 master videos once the output looks good. Later, set `RENDER_ALL_PLATFORMS=true` to create distinct video variants for each social network; set `MAX_RENDERS_PER_RUN=12` to cap that at three ideas across all four platforms.
 
 Then add `BUFFER_API_KEY`, `BUFFER_ORGANIZATION_ID` and `BUFFER_CHANNELS_JSON`. The first runs create drafts by default. Review the text and video quality before allowing auto queueing.
 
