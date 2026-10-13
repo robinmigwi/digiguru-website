@@ -84,7 +84,13 @@ if (posts.length >= 10 && process.env.OPENAI_API_KEY) {
   });
   if (!response.ok) throw new Error("OpenAI learner request failed: " + response.status + " " + await response.text());
   const result = await response.json();
-  learning = parseJson(result.output_text || "");
+  const outputText = result.output_text || (result.output || [])
+    .filter((item) => item.type === "message")
+    .flatMap((item) => item.content || [])
+    .filter((part) => part.type === "output_text")
+    .map((part) => part.text || "")
+    .join("\n");
+  learning = parseJson(outputText);
   learning.sample_size = posts.length;
   learning.update_memory = Boolean(learning.update_memory);
 }
