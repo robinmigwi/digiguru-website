@@ -67,7 +67,7 @@ databases:
   - name: digiguru-content-os-db
     databaseName: digiguru_content_os
     user: digiguru_content_os
-    plan: 0.1c-256mb
+    plan: basic-256mb
     region: oregon
-    postgresMajorVersion: 18
+    postgresMajorVersion: "18"
     diskSizeGB: 1
