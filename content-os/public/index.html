@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0d2a21" />
+<title>DigiGuru Content OS</title>
+<style>
+:root{--forest:#0d2a21;--forest2:#14392d;--gold:#d6b66a;--mint:#8fd7c8;--paper:#f7f5ee;--ink:#14271f;--muted:#77857d;--line:#e4e5dc;--white:#fff;--danger:#b75c4e;--shadow:0 18px 55px rgba(21,43,32,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit;cursor:pointer}.shell{max-width:1440px;margin:0 auto;padding:0 30px}.topbar{background:var(--forest);color:var(--white);border-bottom:1px solid rgba(214,182,106,.18)}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:82px}.brand{display:flex;align-items:center;gap:12px}.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--gold);color:var(--forest);font-weight:900;font-size:12px;letter-spacing:-.06em}.brand-title{font-weight:750;letter-spacing:-.03em;font-size:17px}.brand-sub{display:block;margin-top:3px;font-size:10px;color:rgba(255,255,255,.48);letter-spacing:.12em;text-transform:uppercase}.right-top{display:flex;align-items:center;gap:14px;font-size:12px;color:rgba(255,255,255,.6)}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);margin-right:7px}.hero{padding:44px 0 32px;display:flex;justify-content:space-between;gap:30px;align-items:end}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:750;color:#8a7440;margin:0 0 14px}.hero h1{margin:0;max-width:760px;font-size:clamp(34px,4.2vw,58px);line-height:.98;letter-spacing:-.065em;font-weight:760}.hero h1 span{color:#9b824a}.hero p{max-width:660px;line-height:1.65;color:#67756c;font-size:14px;margin:17px 0 0}.hero-note{background:#ece9de;border:1px solid #e1dac6;border-radius:16px;padding:17px 19px;min-width:235px;max-width:280px}.hero-note small{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#927a44;font-weight:800}.hero-note strong{display:block;font-size:14px;line-height:1.4;margin-top:8px}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 26px}.action{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:18px 19px;display:flex;align-items:center;justify-content:space-between;gap:15px;box-shadow:0 4px 12px rgba(12,42,30,.02)}.action h2{font-size:14px;margin:0 0 6px;letter-spacing:-.02em}.action p{margin:0;color:var(--muted);font-size:11px;line-height:1.45}.action button,.btn{border:0;border-radius:10px;background:var(--forest);color:var(--white);font-size:11px;font-weight:750;padding:12px 14px;white-space:nowrap;transition:.2s}.action button:hover,.btn:hover{background:#205340;transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}.metric{background:var(--forest);color:var(--white);border-radius:15px;padding:18px 20px;min-height:106px;position:relative;overflow:hidden}.metric:after{content:"";position:absolute;width:90px;height:90px;border:1px solid rgba(214,182,106,.18);border-radius:50%;right:-30px;bottom:-47px}.metric small{color:rgba(255,255,255,.58);font-size:10px;letter-spacing:.08em;text-transform:uppercase}.metric strong{display:block;font-size:30px;letter-spacing:-.055em;margin-top:8px}.metric span{font-size:10px;color:var(--mint)}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.85fr);gap:16px;align-items:start}.panel{background:var(--white);border:1px solid var(--line);border-radius:18px;margin-bottom:16px;overflow:hidden;box-shadow:0 6px 20px rgba(12,42,30,.025)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:19px 21px;border-bottom:1px solid var(--line)}.panel-head h2{margin:0;font-size:15px;letter-spacing:-.035em}.panel-head p{margin:5px 0 0;color:var(--muted);font-size:11px}.panel-body{padding:20px 21px}.subtle{color:var(--muted);font-size:11px}.status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 9px;background:#edf4ef;color:#35735b;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}.status:before{content:"";height:5px;width:5px;border-radius:50%;background:currentColor}.status.wait{background:#f7f0df;color:#9b7832}.status.fail{background:#f9e9e5;color:var(--danger)}.idea-list{display:grid;gap:10px}.idea{border:1px solid var(--line);border-radius:13px;padding:15px 16px}.idea-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.idea h3{font-size:16px;line-height:1.25;margin:7px 0 6px;letter-spacing:-.035em}.idea .tag{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:#8f7847}.score{display:grid;place-items:center;min-width:43px;height:43px;border-radius:50%;background:#e9f2ec;color:#1b694f;font-size:13px;font-weight:800}.idea-desc{color:#67756c;font-size:11px;line-height:1.55;margin:0}.idea-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.ghost{border:1px solid #dce1d9;border-radius:9px;background:#fff;padding:8px 10px;font-size:10px;font-weight:700;color:var(--forest)}.ghost:hover{border-color:#98b6a9;background:#f8fbf8}.variant{margin-top:13px;background:#f7f7f2;border-radius:11px;padding:13px;display:none}.variant.open{display:block}.variant select{max-width:100%;border:1px solid #d8ddd5;border-radius:8px;background:#fff;padding:7px 9px;font-size:11px;margin-bottom:12px}.variant h4{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#887341;margin:13px 0 5px}.variant p{font-size:11px;line-height:1.6;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.video-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.video-links a{font-size:10px;color:#22674f;text-decoration:none;font-weight:800}.video-links a:hover{text-decoration:underline}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini-stat{border:1px solid var(--line);border-radius:12px;padding:12px}.mini-stat small{display:block;color:var(--muted);font-size:10px}.mini-stat strong{display:block;font-size:22px;letter-spacing:-.04em;margin-top:5px}.job-list,.post-list,.signal-list{display:grid;gap:9px}.job,.post,.signal{display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid #eff0e9;padding:9px 0 12px}.job:last-child,.post:last-child,.signal:last-child{border-bottom:0;padding-bottom:0}.job-icon{display:grid;place-items:center;width:31px;height:31px;border-radius:9px;background:#f0eee5;color:#8a7440;font-weight:900;font-size:11px;flex-shrink:0}.job-info,.post-info,.signal-info{flex:1;min-width:0}.job-info strong,.post-info strong,.signal-info strong{font-size:11px;display:block;overflow-wrap:anywhere}.job-info small,.post-info small,.signal-info small{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.5}.signal-info a{color:var(--forest);text-decoration:none}.signal-info a:hover{text-decoration:underline}.post-platform{display:grid;place-items:center;width:31px;height:31px;border-radius:9px;background:#edf3ee;color:#23634d;font-size:9px;font-weight:900;flex-shrink:0}.report{font-size:11px;color:#54655b;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;max-height:330px;overflow:auto}.empty{padding:20px;border:1px dashed #dce0d7;border-radius:12px;color:#7b887f;font-size:12px;line-height:1.6;text-align:center}.foot{padding:16px 0 28px;color:#89928b;font-size:10px;display:flex;justify-content:space-between;gap:15px}.toast{position:fixed;bottom:20px;right:20px;background:var(--forest);color:white;border:1px solid rgba(214,182,106,.45);padding:14px 17px;border-radius:12px;font-size:12px;box-shadow:var(--shadow);max-width:340px;display:none;z-index:99}.toast.show{display:block;animation:up .2s ease}@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.refresh{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:9px;padding:8px 10px;font-size:10px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.hero-note{max-width:none;width:100%}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.shell{padding:0 15px}.topbar-inner{min-height:70px}.right-top span.label{display:none}.hero{padding-top:32px}.actions{grid-template-columns:1fr}.action{padding:16px}.metric{padding:15px;min-height:94px}.metric strong{font-size:26px}.panel-head,.panel-body{padding:16px}.two{grid-template-columns:1fr}.foot{flex-direction:column}.idea-top{gap:8px}.idea h3{font-size:15px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <div class="brand"><div class="mark">DG</div><div><div class="brand-title">DigiGuru Content OS</div><span class="brand-sub">Content intelligence · production · learning</span></div></div>
+    <div class="right-top"><span><i class="dot"></i><span class="label">System dashboard</span></span><button class="refresh" id="refresh">Refresh ↻</button></div>
+  </div>
+</header>
+<main class="shell">
+  <section class="hero">
+    <div><p class="eyebrow">The content engine</p><h1>Turn ideas into a <span>repeatable system.</span></h1><p>Research what matters, build platform native content, render video, manage distribution and learn from performance. One place to run DigiGuru’s content operation.</p></div>
+    <aside class="hero-note"><small>Operating principle</small><strong>One core idea. Four platform versions. A feedback loop that gets smarter.</strong></aside>
+  </section>
+
+  <section class="actions">
+    <article class="action"><div><h2>Run Scout</h2><p>Find new signals and rank content opportunities.</p></div><button data-run="research">Run research →</button></article>
+    <article class="action"><div><h2>Build the week</h2><p>Write scripts, render video and prepare the publish queue.</p></div><button data-run="pipeline">Build content →</button></article>
+    <article class="action"><div><h2>Learn from results</h2><p>Collect metrics and refresh the creative memory.</p></div><button data-run="analytics">Analyze →</button></article>
+  </section>
+
+  <section class="metrics" id="metrics">
+    <article class="metric"><small>Research signals</small><strong id="metric-signals">—</strong><span>Current discovery snapshot</span></article>
+    <article class="metric"><small>Content ideas</small><strong id="metric-ideas">—</strong><span>Latest content package</span></article>
+    <article class="metric"><small>Posts in system</small><strong id="metric-posts">—</strong><span>Across four channels</span></article>
+    <article class="metric"><small>Jobs this month</small><strong id="metric-jobs">—</strong><span id="metric-jobs-note">Completed and in progress</span></article>
+  </section>
+
+  <div class="layout">
+    <div>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Content studio</h2><p>Master ideas with platform specific scripts and video assets.</p></div><span id="ideas-count" class="status wait">Waiting for first run</span></div>
+        <div class="panel-body"><div id="ideas" class="idea-list"><div class="empty">Run Scout, then build the week's content to see scripts and creative briefs here.</div></div></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Distribution queue</h2><p>Drafts and scheduled posts from the publishing agent.</p></div><span id="posts-total" class="subtle">0 posts</span></div>
+        <div class="panel-body"><div id="posts" class="post-list"><div class="empty">No posts prepared yet.</div></div></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Performance learnings</h2><p>Patterns and experiments from measured posts.</p></div></div>
+        <div class="panel-body"><div id="report" class="report">The first analysis report will appear here after the analytics job runs.</div></div>
+      </section>
+    </div>
+    <aside>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Agent activity</h2><p>Latest research, production and analytics jobs.</p></div></div>
+        <div class="panel-body"><div id="jobs" class="job-list"><div class="empty">No jobs recorded yet.</div></div></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Research notebook</h2><p>Signals feeding the next content cycle.</p></div><span id="signal-total" class="subtle">0 signals</span></div>
+        <div class="panel-body"><div id="signals" class="signal-list"><div class="empty">The Scout hasn't collected its first snapshot yet.</div></div></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><h2>Guardrails</h2></div><span class="status">Active</span></div>
+        <div class="panel-body">
+          <div class="job-list">
+            <div class="job"><div class="job-icon">✓</div><div class="job-info"><strong>Verified claims only</strong><small>Client results, quotes and statistics require evidence.</small></div></div>
+            <div class="job"><div class="job-icon">70</div><div class="job-info"><strong>Minimum content score</strong><small>Low scoring ideas don't enter the publish eligible queue.</small></div></div>
+            <div class="job"><div class="job-icon">Ⅱ</div><div class="job-info"><strong>Draft mode by default</strong><small>Social posting requires explicit queue configuration.</small></div></div>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <footer class="foot"><span>DigiGuru Content OS · built for continuous improvement</span><span id="updated">Waiting for dashboard data</span></footer>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const date=s=>s?new Date(s).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"}):"Not recorded";
+function showToast(s){const t=$("#toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),4500)}
+function statusClass(s){return ["failed","error"].includes(String(s).toLowerCase())?"fail":["running","queued","waiting_for_video","missing_channel_id"].includes(String(s).toLowerCase())?"wait":""}
+function renderIdeas(items){
+ const box=$("#ideas");
+ if(!items?.length){box.innerHTML='<div class="empty">No generated ideas yet. Run research, then build the week's content.</div>';$("#ideas-count").textContent="No content";return}
+ $("#ideas-count").textContent=items.length+" core ideas";
+ box.innerHTML=items.map((item,i)=> {
+  const platforms=Object.keys(item.platform_variants||{});
+  const variants=item.platform_variants||{};
+  const options=platforms.map(k=>'<option value="'+esc(k)+'">'+esc(k.charAt(0).toUpperCase()+k.slice(1))+'</option>').join("");
+  const defaultVariant=variants.instagram||variants.linkedin||{};
+  const video=(item.video_assets||[]).map(v=>'<a target="_blank" rel="noopener noreferrer" href="'+esc(v.url)+'">'+esc(v.platform)+' video ↗</a>').join("");
+  return '<article class="idea"><div class="idea-top"><div><span class="tag">'+esc(item.franchise||"DigiGuru")+'</span><h3>'+esc(item.title||item.id)+'</h3><p class="idea-desc">'+esc(item.angle||item.business_problem||"")+'</p></div><div class="score">'+esc(item.score??"—")+'</div></div><div class="idea-actions"><button class="ghost" data-expand="'+i+'">View scripts & copy</button><span class="status '+(item.verification_required||!item.publish_eligible?"wait":"")+'">'+(item.verification_required?"Needs verification":item.publish_eligible?"Publish eligible":"Review first")+'</span></div><div class="variant" id="variant-'+i+'"><label class="subtle" for="platform-'+i+'">Platform version</label><br/><select id="platform-'+i+'" data-platform="'+i+'">'+options+'</select><h4>Opening hook</h4><p class="hook">'+esc(defaultVariant.hook||item.hook||"")+'</p><h4>Spoken script</h4><p class="script">'+esc(defaultVariant.script||"")+'</p><h4>On screen text</h4><p class="screen">'+esc((defaultVariant.on_screen_text||[]).join("\\n"))+'</p><h4>Caption</h4><p class="caption">'+esc(defaultVariant.caption||"")+'</p><h4>Call to action</h4><p class="cta">'+esc(defaultVariant.cta||"")+'</p><h4>Creative direction</h4><p class="visual">'+esc(defaultVariant.visual_direction||item.visual_format||"")+'</p><div class="video-links">'+video+'</div></div></article>'
+ }).join("");
+ box.querySelectorAll("[data-expand]").forEach(btn=>btn.addEventListener("click",()=>{$("#variant-"+btn.dataset.expand).classList.toggle("open")}));
+ box.querySelectorAll("[data-platform]").forEach(select=>select.addEventListener("change",()=>{
+  const item=items[Number(select.dataset.platform)],v=(item.platform_variants||{})[select.value]||{};
+  const box=$("#variant-"+select.dataset.platform);
+  for(const [klass,val] of [["hook",v.hook||item.hook||""],["script",v.script||""],["screen",(v.on_screen_text||[]).join("\\n")],["caption",v.caption||""],["cta",v.cta||""],["visual",v.visual_direction||item.visual_format||""]])box.querySelector("."+klass).textContent=val;
+ }));
+}
+function renderJobs(jobs){
+ const box=$("#jobs");
+ if(!jobs?.length){box.innerHTML='<div class="empty">Jobs will appear here when you run an agent.</div>';return}
+ box.innerHTML=jobs.map(job=>'<div class="job"><div class="job-icon">'+({research:"S",pipeline:"P",analytics:"A"}[job.job_type]||"DG")+'</div><div class="job-info"><strong>'+esc(job.job_type)+" · "+esc(job.summary||job.status)+'</strong><small>'+esc(date(job.created_at))+(job.error_text?"<br/>"+esc(job.error_text):"")+'</small></div><span class="status '+statusClass(job.status)+'">'+esc(job.status)+'</span></div>').join("");
+}
+function renderPosts(posts){
+ $("#posts-total").textContent=(posts||[]).length+" posts";
+ if(!posts?.length){$("#posts").innerHTML='<div class="empty">No distribution items have been prepared. The system starts in draft mode.</div>';return}
+ $("#posts").innerHTML=posts.map(post=>'<div class="post"><div class="post-platform">'+esc(({instagram:"IG",facebook:"FB",linkedin:"IN",tiktok:"TT"}[post.platform]||post.platform.slice(0,2).toUpperCase()))+'</div><div class="post-info"><strong>'+esc(post.payload?.hook||post.id)+'</strong><small>'+esc(post.platform)+" · "+esc(date(post.scheduled_at||post.updated_at))+'</small></div><span class="status '+statusClass(post.status)+'">'+esc(post.status)+'</span></div>').join("");
+}
+function renderSignals(research){
+ const signals=research?.signals||[];
+ $("#signal-total").textContent=(research?.signal_count||signals.length)+" signals";
+ if(!signals.length){$("#signals").innerHTML='<div class="empty">The Scout will list useful source signals here after the first successful run.</div>';return}
+ $("#signals").innerHTML=signals.slice(0,7).map(signal=>'<div class="signal"><div class="job-icon">↗</div><div class="signal-info"><strong>'+(signal.link?'<a href="'+esc(signal.link)+'" target="_blank" rel="noopener noreferrer">'+esc(signal.title)+'</a>':esc(signal.title))+'</strong><small>'+esc(signal.source||"Public source")+" · "+esc(signal.published||"Date not supplied")+'</small></div></div>').join("");
+}
+async function refresh(){
+ try{
+  const response=await fetch("/api/dashboard",{cache:"no-store"});
+  if(!response.ok)throw new Error(response.status===401?"Please authenticate again.":"Dashboard error "+response.status);
+  const data=await response.json();
+  $("#metric-signals").textContent=data.research?.signal_count??"—";
+  $("#metric-ideas").textContent=data.content?.items?.length??"—";
+  $("#metric-posts").textContent=(data.posts||[]).length;
+  const jobCount=Object.values(data.stats?.jobs_30d||{}).reduce((a,b)=>a+b,0);$("#metric-jobs").textContent=jobCount;
+  $("#metric-jobs-note").textContent=(data.stats?.jobs_30d?.succeeded||0)+" succeeded · "+(data.stats?.jobs_30d?.failed||0)+" failed";
+  renderIdeas(data.content?.items);renderJobs(data.jobs);renderPosts(data.posts);renderSignals(data.research);
+  $("#report").textContent=data.report?.markdown||"The first analysis report will appear here after the analytics job runs.";
+  $("#updated").textContent="Updated "+new Date(data.now).toLocaleTimeString();
+ }catch(error){showToast(error.message)}
+}
+document.querySelectorAll("[data-run]").forEach(button=>button.addEventListener("click",async()=>{
+ const type=button.dataset.run,old=button.textContent;button.disabled=true;button.textContent="Starting…";
+ try{const response=await fetch("/api/jobs",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({type})});const result=await response.json();if(!response.ok)throw new Error(result.error||"Could not start job.");showToast(result.message||"Job accepted.");setTimeout(refresh,1300);setTimeout(refresh,5500)}
+ catch(error){showToast(error.message)}finally{button.disabled=false;button.textContent=old}
+}));
+$("#refresh").addEventListener("click",refresh);
+refresh();setInterval(refresh,20000);
+</script>
+</body>
+</html>
