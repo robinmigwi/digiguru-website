@@ -6,7 +6,7 @@ The website repository deploys through Netlify. Keep the Content OS away from it
 
 ## Step 2: Add secrets
 
-Start with `OPENAI_API_KEY` and optional `OPENAI_MODEL`. Confirm that research and content generation work first.
+Start with `OPENAI_API_KEY` and optional `OPENAI_MODEL`. Add `TAVILY_API_KEY` if you want the Scout to supplement the RSS feeds with three rotating web searches per run. Without Tavily, RSS research still runs. Confirm that research and content generation work first.
 
 Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 once the output looks good.
 
