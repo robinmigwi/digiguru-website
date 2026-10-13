@@ -6,6 +6,8 @@ import { spawn } from "node:child_process";
 import {
   initDatabase,
   getPool,
+  createJob,
+  updateJob,
   dashboardStats,
   listJobs,
   getJob,
@@ -181,18 +183,23 @@ const server = http.createServer(async (req, res) => {
       if (!["research", "pipeline", "analytics"].includes(action)) {
         return sendJson(res, 400, { error: "Choose research, pipeline or analytics." });
       }
-      const recent = (await listJobs(10)).find((job) => job.job_type === action && job.status === "running");
+      const recent = (await listJobs(20)).find((job) => job.job_type === action && job.status === "running");
       if (recent) return sendJson(res, 409, { error: action + " is already running.", job: recent });
 
-      const child = spawn(process.execPath, [path.join(ROOT, "src", "run-job.mjs"), action, "", "dashboard"], {
+      const job = await createJob(action, "dashboard");
+      const child = spawn(process.execPath, [path.join(ROOT, "src", "run-job.mjs"), action, String(job.id), "dashboard"], {
         cwd: ROOT,
         env: process.env,
         detached: true,
         stdio: "ignore"
       });
+      child.on("error", (error) => {
+        updateJob(job.id, { status: "failed", summary: "Could not start job.", errorText: error.message }).catch(() => {});
+      });
       child.unref();
       return sendJson(res, 202, {
         accepted: true,
+        job_id: job.id,
         message: action + " job started. Refresh this dashboard for progress.",
         pid: child.pid || null
       });
