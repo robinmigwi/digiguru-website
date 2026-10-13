@@ -1,0 +1,19 @@
+{
+  "name": "digiguru-content-os",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Research, creative generation, video production, distribution and learning automation for DigiGuru.",
+  "scripts": {
+    "research": "node src/research.mjs",
+    "generate": "node src/generate-content.mjs",
+    "render": "node src/render-video.mjs",
+    "publish": "node src/publish.mjs",
+    "analytics": "node src/analytics.mjs",
+    "learn": "node src/learn.mjs",
+    "validate": "node src/validate.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.800.0"
+  }
+}
