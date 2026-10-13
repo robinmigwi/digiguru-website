@@ -1,43 +1,30 @@
-# DigiGuru Content OS Setup
+# Setup checklist
 
-## 1. GitHub secret
+## Step 1: Move into a separate repository
 
-On the content OS branch, add repository secret:
+The website repository deploys through Netlify. Keep the Content OS away from its `main` branch. Create a dedicated private repository named `digiguru-content-os` and copy the contents of this folder plus the `.github/workflows` folder into its root. Use `main` as the default branch. This is required for scheduled GitHub Actions to run.
 
-OPENAI_API_KEY
+## Step 2: Add secrets
 
-Optionally add:
+Start with `OPENAI_API_KEY` and optional `OPENAI_MODEL`. Confirm that research and content generation work first.
 
-OPENAI_MODEL
+Then add `CREATOMATE_API_KEY` for video. Start with `MAX_RENDERS_PER_RUN=1` while testing. Increase to 3 once the output looks good.
 
-The research job defaults to gpt-5-mini.
+Then add `BUFFER_API_KEY`, `BUFFER_ORGANIZATION_ID` and `BUFFER_CHANNELS_JSON`. The first runs create drafts by default. Review the text and video quality before allowing auto queueing.
 
-## 2. Test manually
+For true unattended distribution, explicitly set `ENABLE_AUTO_PUBLISH=true` and `CONTENT_PUBLISH_MODE=queue`.
 
-Open GitHub Actions and run:
+Voiceover is optional. Only enable it after testing a voice and adding all ElevenLabs and Cloudflare R2 credentials.
 
-DigiGuru Content Research → Run workflow
+## Step 3: Test in order
 
-The first run should create:
+1. Run DigiGuru Content Research manually.
+2. Run DigiGuru Weekly Content Pipeline manually and inspect `data/content`.
+3. Test one Creatomate render.
+4. Confirm one Buffer draft on each connected platform.
+5. Confirm the analytics workflow can retrieve metrics.
+6. Only then enable the weekly schedule and unattended queue mode.
 
-content-os/data/research/YYYY-MM-DD.json
+## No deployment
 
-## 3. What this first workflow does
-
-It gathers current public business and marketing signals from configured feeds, sends them with the DigiGuru strategy to the Scout + Strategist agent, and saves ranked opportunities.
-
-It does not publish anything.
-
-## 4. Next integration credentials
-
-Later we will add credentials for:
-- social scheduling
-- analytics
-- video rendering
-- media storage
-
-These will be stored as GitHub Actions secrets, never in the repository.
-
-## 5. Production rule
-
-Do not merge this branch into main until the content system is moved to a repository that is not connected to the DigiGuru Netlify deployment.
+This is a standalone automation repository. It must not be connected to the Netlify website project.
