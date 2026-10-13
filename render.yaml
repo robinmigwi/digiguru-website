@@ -1,0 +1,105 @@
+# DigiGuru Content OS
+# This Blueprint is separate from the DigiGuru website deployment.
+# All services use the content-os directory and the Render branch that contains this Blueprint.
+
+services:
+  - type: web
+    name: digiguru-content-os
+    runtime: node
+    plan: starter
+    region: oregon
+    rootDir: content-os
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: digiguru-content-os-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+      - key: DASHBOARD_USER
+        value: robin
+      - key: DASHBOARD_PASSWORD
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: CREATOMATE_API_KEY
+        sync: false
+      - key: BUFFER_API_KEY
+        sync: false
+      - key: BUFFER_ORGANIZATION_ID
+        sync: false
+      - key: BUFFER_CHANNELS_JSON
+        sync: false
+      - key: ENABLE_AUTO_PUBLISH
+        value: "false"
+      - key: CONTENT_PUBLISH_MODE
+        value: draft
+      - key: MAX_RENDERS_PER_RUN
+        value: "1"
+      - key: RENDER_ALL_PLATFORMS
+        value: "false"
+      - key: MAX_SOCIAL_POSTS_PER_RUN
+        value: "12"
+      - key: ENABLE_VOICEOVER
+        value: "false"
+
+  - type: cron
+    name: digiguru-content-os-scheduler
+    runtime: node
+    plan: starter
+    region: oregon
+    rootDir: content-os
+    buildCommand: npm install --omit=dev
+    startCommand: npm run daily
+    schedule: "0 4 * * *"
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: digiguru-content-os-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: CREATOMATE_API_KEY
+        sync: false
+      - key: BUFFER_API_KEY
+        sync: false
+      - key: BUFFER_ORGANIZATION_ID
+        sync: false
+      - key: BUFFER_CHANNELS_JSON
+        sync: false
+      - key: ENABLE_AUTO_PUBLISH
+        value: "false"
+      - key: CONTENT_PUBLISH_MODE
+        value: draft
+      - key: MAX_RENDERS_PER_RUN
+        value: "1"
+      - key: RENDER_ALL_PLATFORMS
+        value: "false"
+      - key: MAX_SOCIAL_POSTS_PER_RUN
+        value: "12"
+      - key: ENABLE_VOICEOVER
+        value: "false"
+
+databases:
+  - name: digiguru-content-os-db
+    databaseName: digiguru_content_os
+    user: digiguru_content_os
+    plan: 0.1c-256mb
+    region: oregon
+    postgresMajorVersion: 18
+    diskSizeGB: 1
