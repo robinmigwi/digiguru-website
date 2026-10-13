@@ -6,11 +6,23 @@ const BRAND = JSON.parse(await fs.readFile(path.join(ROOT, "config/brand.json"),
 const STRATEGY = JSON.parse(await fs.readFile(path.join(ROOT, "data/content-pillars.json"), "utf8"));
 
 const FEEDS = [
+  "https://news.google.com/rss/search?q=WhatsApp+business+sales+Kenya&hl=en&gl=KE&ceid=KE:en",
+  "https://news.google.com/rss/search?q=small+business+marketing+Kenya&hl=en&gl=KE&ceid=KE:en",
+  "https://news.google.com/rss/search?q=Kenya+ecommerce+social+media+customer+experience&hl=en&gl=KE&ceid=KE:en",
   "https://news.google.com/rss/search?q=WhatsApp+sales+customer+service&hl=en&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=small+business+marketing+lead+generation&hl=en&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=TikTok+marketing+social+video&hl=en&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=Meta+ads+Instagram+Facebook+business&hl=en&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=CRM+follow+up+customer+experience&hl=en&gl=US&ceid=US:en"
+];
+
+const WEB_QUERIES = [
+  "current TikTok Creative Center trends that can be adapted to small business marketing and customer journeys",
+  "Meta Ads Library examples of WhatsApp lead generation ads and creative approaches for small businesses",
+  "Kenyan business owners customer WhatsApp enquiry response follow up ordering and booking challenges",
+  "short form video ideas about lead generation customer experience and sales follow up",
+  "conversational commerce examples where WhatsApp connects customer questions to orders bookings or quotes",
+  "LinkedIn B2B video storytelling ideas for explaining business problems through a founder point of view"
 ];
 
 function decodeXml(value) {
@@ -39,6 +51,55 @@ function parseItems(xml) {
   }).filter((item) => item.title);
 }
 
+async function collectWebSignals() {
+  const apiKey = process.env.TAVILY_API_KEY;
+  if (!apiKey) return [];
+
+  // Three searches per run keeps research spend predictable. The query set rotates daily.
+  const day = Math.floor(Date.now() / (24 * 60 * 60 * 1000));
+  const queries = [0, 1, 2].map((offset) => WEB_QUERIES[(day + offset) % WEB_QUERIES.length]);
+  const collected = [];
+
+  for (const query of queries) {
+    try {
+      const response = await fetch("https://api.tavily.com/search", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          api_key: apiKey,
+          query,
+          search_depth: "basic",
+          topic: "general",
+          max_results: 5,
+          time_range: "month",
+          country: "kenya",
+          include_answer: false,
+          include_raw_content: false
+        })
+      });
+      if (!response.ok) {
+        console.warn("Tavily search skipped:", response.status);
+        continue;
+      }
+      const data = await response.json();
+      for (const result of data.results || []) {
+        collected.push({
+          title: result.title || "",
+          link: result.url || "",
+          published: result.published_date || "",
+          source: result.url ? new URL(result.url).hostname : "web search",
+          source_type: "web_search",
+          description: String(result.content || "").slice(0, 1800),
+          relevance_score: result.score ?? null
+        });
+      }
+    } catch (error) {
+      console.warn("Tavily search failed:", String(error.message || error));
+    }
+  }
+  return collected;
+}
+
 async function collectSignals() {
   const collected = [];
   for (const url of FEEDS) {
@@ -52,6 +113,7 @@ async function collectSignals() {
       // One failed source should not stop the research cycle.
     }
   }
+  collected.push(...await collectWebSignals());
 
   const seen = new Set();
   return collected.filter((item) => {
@@ -59,7 +121,7 @@ async function collectSignals() {
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
-  }).slice(0, 80);
+  }).slice(0, 100);
 }
 
 function extractJson(text) {
