@@ -95,7 +95,10 @@ const log = {
 };
 
 if (!apiKey) {
-  log.note = "BUFFER_API_KEY missing; queue plan saved locally. No social posts were created.";
+  for (const post of posts) {
+    if (post.video_url) post.status = "plan_only";
+  }
+  log.note = "BUFFER_API_KEY missing; queue plan saved to the Content OS database. No social posts were created.";
 } else {
   for (const post of posts) {
     if (!post.video_url) continue;
