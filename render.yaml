@@ -56,28 +56,12 @@ services:
         sync: false
       - key: OPENAI_MODEL
         value: gpt-5-mini
-      - key: TAVILY_API_KEY
-        sync: false
-      - key: CREATOMATE_API_KEY
-        sync: false
-      - key: BUFFER_API_KEY
-        sync: false
-      - key: BUFFER_ORGANIZATION_ID
-        sync: false
-      - key: BUFFER_CHANNELS_JSON
-        sync: false
       - key: ENABLE_AUTO_PUBLISH
         value: "false"
       - key: CONTENT_PUBLISH_MODE
         value: draft
       - key: MAX_RENDERS_PER_RUN
         value: "1"
-      - key: RENDER_ALL_PLATFORMS
-        value: "false"
-      - key: MAX_SOCIAL_POSTS_PER_RUN
-        value: "12"
-      - key: ENABLE_VOICEOVER
-        value: "false"
 
 databases:
   - name: digiguru-content-os-db
