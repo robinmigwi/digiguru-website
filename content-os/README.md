@@ -18,7 +18,7 @@ A self improving content pipeline for DigiGuru. It researches current business s
 - Publishing defaults to drafts. Nothing is published automatically unless `ENABLE_AUTO_PUBLISH=true` and `CONTENT_PUBLISH_MODE=queue`.
 - Client stories, customer quotes, stats and results need approved evidence.
 - Ideas with a score below 70 or requiring verification cannot be published by the automated workflow.
-- If a connector is not configured, the job records the missing dependency and skips that stage.
+- Video rendering skips when Creatomate is not configured; publishing stores a queue plan if Buffer is missing; analytics skips without Buffer credentials. OpenAI is required for research and content generation.
 - This code must live in a repository that is not linked to the DigiGuru Netlify website.
 
 ## Install
@@ -43,6 +43,15 @@ For video rendering:
 - Optional `MAX_RENDERS_PER_RUN` (default 3 master videos per week)
 - Optional `RENDER_ALL_PLATFORMS` (default false; true creates all four platform specific videos per idea unless a render cap is set)
 
+For persistent video hosting (recommended for a long queue):
+- `R2_ACCOUNT_ID`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+- `R2_PUBLIC_BASE_URL`
+
+If R2 is configured, rendered MP4 files are copied to persistent public storage rather than relying on Creatomate's temporary render URL.
+
 For social distribution and analytics:
 - `BUFFER_API_KEY`
 - `BUFFER_ORGANIZATION_ID`
@@ -55,12 +64,6 @@ Optional AI voiceover:
 - `ENABLE_VOICEOVER=true`
 - `ELEVENLABS_API_KEY`
 - `ELEVENLABS_VOICE_ID`
-- `R2_ACCOUNT_ID`
-- `R2_ACCESS_KEY_ID`
-- `R2_SECRET_ACCESS_KEY`
-- `R2_BUCKET`
-- `R2_PUBLIC_BASE_URL`
-
 All secrets are optional by stage and must be added in GitHub repository settings. Never write credentials into files.
 
 ## Workflows
