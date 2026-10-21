@@ -138,3 +138,15 @@ contactForm?.querySelectorAll('input, select, textarea').forEach((field) => {
     if (field.checkValidity()) field.removeAttribute('aria-invalid');
   });
 });
+
+const blogFilters = document.querySelectorAll('[data-blog-filter]');
+const blogCards = document.querySelectorAll('[data-blog-category]');
+blogFilters.forEach((filter) => {
+  filter.addEventListener('click', () => {
+    const category = filter.dataset.blogFilter;
+    blogFilters.forEach((item) => item.setAttribute('aria-pressed', String(item === filter)));
+    blogCards.forEach((card) => {
+      card.hidden = category !== 'all' && card.dataset.blogCategory !== category;
+    });
+  });
+});
