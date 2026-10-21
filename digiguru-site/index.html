@@ -3,439 +3,389 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0d2a21" />
-  <meta name="description" content="DigiGuru builds conversational sales systems that connect sponsored ads, websites and WhatsApp to bookings, orders, enquiries and follow up." />
-  <meta property="og:title" content="DigiGuru — Turn attention into action" />
-  <meta property="og:description" content="Conversational sales systems for businesses that want more from every lead they generate." />
-  <title>DigiGuru — Turn attention into action</title>
+  <meta name="theme-color" content="#10372c" />
+  <meta name="description" content="DigiGuru connects marketing, websites, WhatsApp conversations and business actions into one customer journey, helping businesses turn interest into bookings, orders and sales." />
+  <meta property="og:title" content="DigiGuru | Turn customer attention into action" />
+  <meta property="og:description" content="A clearer path from discovery to conversation, booking, order and follow up." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digiguru-website.netlify.app/" />
+  <title>DigiGuru | Turn customer attention into action</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.svg" />
 </head>
 <body>
-  <div class="site-grain" aria-hidden="true"></div>
-  <div class="page-progress"><span id="page-progress-bar"></span></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-progress" aria-hidden="true"><span id="page-progress-bar"></span></div>
 
-  <header class="site-nav" id="site-nav">
+  <header class="site-header" id="top">
     <div class="nav-shell">
-      <a href="#top" class="brand" aria-label="DigiGuru home">
-        <span class="brand-symbol" aria-hidden="true">DG</span>
-        <span class="brand-name">DigiGuru</span>
+      <a class="brand" href="#top" aria-label="DigiGuru home">
+        <img src="digiguru-logo.png" width="200" height="49" alt="DigiGuru. Better systems. More customers." class="brand-logo" />
       </a>
 
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#leak">How it works</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#journey">The flow</a>
         <a href="#system">What we build</a>
-        <a href="#ads">Sponsored Ads</a>
-        <a href="#concierge">Concierge</a>
-        <a href="#connections">What it connects</a>
         <a href="#work">Our work</a>
+        <a href="#process">How we work</a>
       </nav>
 
-      <a class="nav-cta" data-whatsapp-cta href="#contact">Talk on WhatsApp <span>↗</span></a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+      <a class="button button-small button-dark nav-action" href="#contact">Map my customer journey <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
-
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <div class="mobile-menu-inner">
-        <p class="mono-label">EXPLORE DIGIGURU</p>
-        <a href="#leak" data-close-menu><strong>How it works</strong><span>See where leads get lost and what we build.</span></a>
-        <a href="#system" data-close-menu><strong>What we build</strong><span>See how attention becomes a useful conversation.</span></a>
-        <a href="#ads" data-close-menu><strong>Sponsored Ads</strong><span>Meta advertising designed to generate real conversations.</span></a>
-        <a href="#concierge" data-close-menu><strong>Concierge</strong><span>The conversation layer built around your business</span></a>
-        <a href="#connections" data-close-menu><strong>What it connects</strong><span>CRM, calendar, booking, catalogue, follow up and your team.</span></a>
-        <a href="#work" data-close-menu><strong>Our work</strong><span>Examples across different customer journeys</span></a>
-        <a href="#contact" class="mobile-contact" data-close-menu>Start a conversation <span>↗</span></a>
-      </div>
-    </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#journey">The customer flow</a>
+      <a href="#system">What we build</a>
+      <a href="#work">Our work</a>
+      <a href="#process">How we work</a>
+      <a class="mobile-nav-cta" href="#contact">Map my customer journey <span aria-hidden="true">↗</span></a>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="hero" id="hero">
-      <div class="hero-aura hero-aura-one"></div>
-      <div class="hero-aura hero-aura-two"></div>
-      <div class="hero-shell section-shell">
-        <div class="hero-copy reveal">
-          <h1>Your marketing gets attention.<br /><span class="hero-emphasis">We turn it into action.</span></h1>
-          <p class="hero-lede">We connect your ads, website and WhatsApp into one customer journey, then build the conversation layer that helps each lead take the next step. Built around your business, your offers, your customers and how you actually sell.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#system">See how it works <span>↓</span></a>
-            <a class="text-link" data-whatsapp-cta href="#contact">Talk to DigiGuru <span>↗</span></a>
-          </div>
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> CUSTOMER JOURNEYS THAT MOVE BUSINESS FORWARD</p>
+        <h1 id="hero-title">Your marketing gets attention. <em>We help turn that interest into sales.</em></h1>
+        <p class="hero-intro">DigiGuru connects how people discover your business with what happens when they ask a question, need advice, want to book or are ready to buy. One clearer path from first click to the next business action.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#journey">See how the flow works <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#work">Explore our work <span aria-hidden="true">↗</span></a>
         </div>
-
-        <div class="hero-visual reveal reveal-delay-1" aria-label="Illustration of a lead moving from an ad to a business action">
-          <div class="hero-visual-top">
-            <div>
-              <span class="mono-label">THE CUSTOMER JOURNEY</span>
-              <p>A lead should not have to figure out what happens next.</p>
-            </div>
-            <span class="live-pill"><span></span> LIVE FLOW</span>
-          </div>
-
-          <div class="lead-path">
-            <div class="path-node path-node-source">
-              <div class="node-number">01</div>
-              <div class="node-icon meta-icon">M</div>
-              <div class="node-copy"><strong>Sponsored attention</strong><span>Meta · Instagram · WhatsApp · Facebook</span></div>
-            </div>
-            <div class="path-line"><i></i></div>
-            <div class="path-node">
-              <div class="node-number">02</div>
-              <div class="node-icon site-icon">↗</div>
-              <div class="node-copy"><strong>Click & context</strong><span>Website · landing page</span></div>
-            </div>
-            <div class="path-line"><i></i></div>
-            <div class="path-node path-node-focus">
-              <div class="node-number">03</div>
-              <div class="node-icon wa-icon">WA</div>
-              <div class="node-copy"><strong>Conversation</strong><span>WhatsApp · real-time response</span></div>
-            </div>
-            <div class="path-line"><i></i></div>
-            <div class="path-node">
-              <div class="node-number">04</div>
-              <div class="node-icon concierge-icon">DG</div>
-              <div class="node-copy"><strong>Concierge</strong><span>Understands the business</span></div>
-            </div>
-            <div class="path-line"><i></i></div>
-            <div class="path-node path-node-action">
-              <div class="node-number">05</div>
-              <div class="node-icon action-icon">✓</div>
-              <div class="node-copy"><strong>Business action</strong><span>Book · buy · enquire · follow up</span></div>
-            </div>
-          </div>
-
-          <div class="hero-visual-note"><span>THE IDEA</span><strong>Less friction between “I'm interested” and “Let's do it.”</strong></div>
-        </div>
+        <div class="hero-note"><span class="note-check" aria-hidden="true">✓</span><span>Built around your business, not a one size fits all template.</span></div>
       </div>
-      <div class="hero-scroll-hint"><span>See where the momentum goes</span><i>↓</i></div>
+
+      <div class="hero-art reveal reveal-delay-1" aria-label="Illustration showing a customer journey from discovery through conversation to business action">
+        <div class="art-topline">
+          <span class="mono-label">THE CUSTOMER JOURNEY</span>
+          <span class="flow-status"><i></i> CONNECTED FLOW</span>
+        </div>
+        <div class="source-row" aria-label="Ways customers discover a business">
+          <span class="source-chip"><b class="source-glyph glyph-meta">M</b> Social ads</span>
+          <span class="source-chip"><b class="source-glyph glyph-search">⌕</b> Search</span>
+          <span class="source-chip"><b class="source-glyph glyph-content">▤</b> Content</span>
+        </div>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <div class="flow-card">
+          <div class="flow-icon icon-web" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"></rect><path d="M3.5 9h17M7 6.8h.1M10 6.8h.1"></path></svg>
+          </div>
+          <div class="flow-card-copy"><span class="flow-step">01 / DISCOVER</span><strong>The customer finds you</strong><small>Website, landing page or social profile</small></div>
+          <span class="flow-tick" aria-hidden="true">01</span>
+        </div>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <div class="flow-card flow-card-chat">
+          <div class="flow-icon icon-chat" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 11.4a7.9 7.9 0 0 1-8.2 7.8 8.7 8.7 0 0 1-3.7-.8L4 19.5l1.2-3.7a7.4 7.4 0 0 1-1.3-4.4 7.9 7.9 0 0 1 8-7.7 7.9 7.9 0 0 1 8.1 7.7Z"></path><path d="M8 11.5h.1M12 11.5h.1M16 11.5h.1"></path></svg>
+          </div>
+          <div class="flow-card-copy"><span class="flow-step">02 / CONVERSE</span><strong>They ask a question</strong><small>WhatsApp, product, price or appointment enquiry</small></div>
+          <span class="flow-tick" aria-hidden="true">02</span>
+        </div>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <div class="concierge-card">
+          <div class="concierge-orb" aria-hidden="true"><img src="favicon.svg" alt="" width="43" height="43" /></div>
+          <div class="concierge-card-copy"><span class="flow-step">03 / UNDERSTAND</span><strong>A business specific Concierge</strong><small>Relevant answers, customer context and a clear next step</small></div>
+          <span class="live-dot" aria-hidden="true"></span>
+        </div>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <div class="outcome-row">
+          <div class="outcome-label"><span class="flow-step">04 / ACT</span><strong>Move the conversation forward</strong></div>
+          <div class="outcome-chips"><span>Book</span><span>Order</span><span>Quote</span><span>Follow up</span></div>
+        </div>
+        <div class="art-footer"><span>LESS FRICTION</span><span class="footer-path">INTEREST <b>→</b> ACTION</span></div>
+        <div class="art-decoration art-decoration-one" aria-hidden="true"></div>
+        <div class="art-decoration art-decoration-two" aria-hidden="true"></div>
+      </div>
     </section>
 
-    <section class="problem section-shell" id="leak">
-      <div class="section-intro reveal">
+    <section class="signal-strip" aria-label="The four stages of a DigiGuru customer journey">
+      <div class="signal-inner">
+        <span class="signal-intro">THE IDEA IS SIMPLE</span>
+        <div class="signal-step"><span>01</span><strong>Attract</strong></div><b class="signal-arrow" aria-hidden="true">→</b>
+        <div class="signal-step"><span>02</span><strong>Converse</strong></div><b class="signal-arrow" aria-hidden="true">→</b>
+        <div class="signal-step"><span>03</span><strong>Convert</strong></div><b class="signal-arrow" aria-hidden="true">→</b>
+        <div class="signal-step"><span>04</span><strong>Continue</strong></div>
+      </div>
+    </section>
+
+    <section class="gap-section section-shell section-space" id="gap" aria-labelledby="gap-title">
+      <div class="section-heading reveal">
         <div>
-          <h2>Your lead arrives.<br /><span>This is where many leads disappear.</span></h2>
+          <p class="eyebrow"><span class="eyebrow-line"></span> THE GAP BETWEEN INTEREST AND ACTION</p>
+          <h2 id="gap-title">A customer is interested.<br /><em>Then what happens?</em></h2>
         </div>
-        <p>Your business spends money and effort creating demand. Someone clicks an ad, visits your website or sends a WhatsApp message. But the handoff from marketing to conversation is often where customers get lost.</p>
+        <p class="heading-aside">The ad may work. The website may look good. But if the next step is slow, unclear or disconnected, an interested customer can still walk away.</p>
       </div>
 
-      <div class="leak-scene reveal reveal-delay-1">
-        <div class="leak-head">
-          <span class="mono-label">A TYPICAL CUSTOMER JOURNEY</span>
-          <span class="leak-badge">FRICTION DETECTED</span>
+      <div class="gap-board reveal reveal-delay-1">
+        <div class="board-head"><span class="mono-label">A CUSTOMER JOURNEY WITH FRICTION</span><span class="board-status"><i></i> COMMON DROP OFF POINTS</span></div>
+        <div class="gap-flow">
+          <article class="gap-node"><span class="node-index">01</span><div class="gap-node-icon icon-ad">↗</div><strong>Sees your ad</strong><small>“This looks useful.”</small></article>
+          <div class="gap-arrow" aria-hidden="true">→</div>
+          <article class="gap-node"><span class="node-index">02</span><div class="gap-node-icon icon-site">▤</div><strong>Visits your site</strong><small>“Let me ask a question.”</small></article>
+          <div class="gap-arrow gap-arrow-alert" aria-hidden="true">→</div>
+          <article class="gap-node gap-node-alert"><span class="node-index">03</span><div class="gap-node-icon icon-message">•••</div><strong>Sends a message</strong><small>“Hi, are you available?”</small><span class="wait-tag">Waiting for a reply</span></article>
+          <div class="gap-arrow gap-arrow-fade" aria-hidden="true">→</div>
+          <article class="gap-node gap-node-fade"><span class="node-index">04</span><div class="gap-node-icon icon-exit">↘</div><strong>Loses momentum</strong><small>Next step is unclear</small></article>
         </div>
-        <div class="leak-flow">
-          <article class="leak-node normal"><span class="tiny-num">01</span><strong>Ad</strong><small>“Learn more”</small></article>
-          <div class="leak-arrow">→</div>
-          <article class="leak-node normal"><span class="tiny-num">02</span><strong>Website</strong><small>“Looks good”</small></article>
-          <div class="leak-arrow">→</div>
-          <article class="leak-node tension"><span class="tiny-num">03</span><strong>WhatsApp</strong><small>“Hi, I'm interested…”</small><span class="delay-label">…waiting</span></article>
-          <div class="leak-arrow faded">→</div>
-          <article class="leak-node tension lost"><span class="tiny-num">04</span><strong>More questions</strong><small>Who can answer?</small><span class="drop-line"></span></article>
-          <div class="leak-arrow faded">→</div>
-          <article class="leak-node lost-node"><span class="tiny-num">05</span><strong>Lost lead</strong><small>Interest cools</small><span class="lost-dot"></span></article>
-        </div>
-        <div class="leak-bottom"><span>YOUR MARKETING DID ITS JOB.</span><strong>THE CUSTOMER STILL HAS TO DO TOO MUCH WORK.</strong></div>
+        <div class="board-foot"><span class="board-foot-mark" aria-hidden="true">!</span><p><strong>The problem is not always a lack of leads.</strong> Sometimes it is what happens after a lead arrives.</p></div>
       </div>
 
-      <div class="recognition-row">
-        <div class="recognition-copy reveal"><span>Why leads disappear</span><p>Nobody was available. The team was busy. The message was missed. The customer had to wait. The person responding did not have the right information. There was no clear next step.</p></div>
-        <div class="recognition-callout reveal reveal-delay-1"><span>THE QUESTION</span><strong>What happens in your business after someone says, “I'm interested”?</strong><i>↘</i></div>
+      <div class="gap-explainer reveal">
+        <div class="explainer-lede">Customers should not have to do all the work.</div>
+        <div class="friction-points">
+          <p><span aria-hidden="true">↗</span> Slow or missed responses</p>
+          <p><span aria-hidden="true">↗</span> Repeated questions and missing context</p>
+          <p><span aria-hidden="true">↗</span> No obvious booking, order or quote step</p>
+          <p><span aria-hidden="true">↗</span> Follow up that relies on memory</p>
+        </div>
       </div>
     </section>
 
-    <section class="shift section-dark" id="system">
+    <section class="journey-section section-space" id="journey" aria-labelledby="journey-title">
       <div class="section-shell">
-        <div class="section-intro section-intro-dark reveal">
+        <div class="section-heading section-heading-light reveal">
           <div>
-            <h2>What we build.</h2>
+            <p class="eyebrow"><span class="eyebrow-line"></span> ONE CONNECTED JOURNEY</p>
+            <h2 id="journey-title">Every step has a job.<br /><em>Every step leads somewhere.</em></h2>
           </div>
-          <p>This is a <strong>Conversational Sales System</strong>: your ads, website and WhatsApp connected to a conversation layer that understands your business and helps each lead take the next step.</p>
+          <p class="heading-aside">DigiGuru connects the pieces around your customer, so the journey does not stop at the click or end with an unanswered message.</p>
         </div>
 
-        <div class="before-after reveal reveal-delay-1">
-          <div class="journey-side journey-before">
-            <div class="ba-label"><span>01</span> BEFORE</div>
-            <div class="ba-stack">
-              <span>Lead arrives</span><i>↓</i><span>Someone notices</span><i>↓</i><span>Customer waits</span><i>↓</i><span>Questions repeat</span><i>↓</i><span>Momentum fades</span>
-            </div>
-            <p>The customer has to carry the context.</p>
-          </div>
-
-          <div class="journey-middle" aria-hidden="true">
-            <div class="middle-orbit orbit-a"></div>
-            <div class="middle-orbit orbit-b"></div>
-            <div class="middle-core"><span>DG</span><small>the bridge</small></div>
-            <div class="orbit-label orbit-top">attention</div>
-            <div class="orbit-label orbit-right">conversation</div>
-            <div class="orbit-label orbit-bottom">action</div>
-          </div>
-
-          <div class="journey-side journey-after">
-            <div class="ba-label"><span>02</span> WITH DIGIGURU</div>
-            <div class="ba-stack ba-stack-good">
-              <span>Lead arrives</span><i>↓</i><span>Conversation starts</span><i>↓</i><span>Context is available</span><i>↓</i><span>Next step is clear</span><i>↓</i><span>Business action</span>
-            </div>
-            <p>The system carries the context forward.</p>
-          </div>
+        <div class="journey-grid reveal reveal-delay-1">
+          <article class="journey-card journey-card-attract">
+            <div class="journey-card-top"><span>01</span><span class="journey-card-icon" aria-hidden="true">↗</span></div>
+            <p class="journey-kicker">GET DISCOVERED</p>
+            <h3>Attract</h3>
+            <p>Help the right people find you and understand what you offer.</p>
+            <div class="journey-detail-list"><span>Sponsored ads</span><span>Content</span><span>SEO & AEO</span><span>Websites & landing pages</span></div>
+          </article>
+          <div class="journey-grid-arrow" aria-hidden="true">→</div>
+          <article class="journey-card journey-card-converse">
+            <div class="journey-card-top"><span>02</span><span class="journey-card-icon" aria-hidden="true">↗</span></div>
+            <p class="journey-kicker">MAKE IT USEFUL</p>
+            <h3>Converse</h3>
+            <p>Give customers a better way to ask, explore options and get relevant answers.</p>
+            <div class="journey-detail-list"><span>WhatsApp Concierge</span><span>Business knowledge</span><span>Product & service guidance</span><span>Human handoff</span></div>
+          </article>
+          <div class="journey-grid-arrow" aria-hidden="true">→</div>
+          <article class="journey-card journey-card-act">
+            <div class="journey-card-top"><span>03</span><span class="journey-card-icon" aria-hidden="true">↗</span></div>
+            <p class="journey-kicker">MAKE THE NEXT STEP EASY</p>
+            <h3>Convert</h3>
+            <p>Move the conversation towards the action the business actually needs.</p>
+            <div class="journey-detail-list"><span>Bookings</span><span>Orders & quote requests</span><span>Lead qualification</span><span>Customer records</span></div>
+          </article>
+          <div class="journey-grid-arrow journey-grid-arrow-down" aria-hidden="true">↙</div>
+          <article class="journey-card journey-card-continue">
+            <div class="journey-card-top"><span>04</span><span class="journey-card-icon" aria-hidden="true">↻</span></div>
+            <p class="journey-kicker">KEEP THE CONTEXT</p>
+            <h3>Continue</h3>
+            <p>Help the team follow through and learn from what happens next.</p>
+            <div class="journey-detail-list"><span>Follow up & reminders</span><span>Calendar & CRM connections</span><span>Handoffs</span><span>Reporting & improvement</span></div>
+          </article>
         </div>
 
-        <div class="system-ribbon" aria-label="DigiGuru journey steps">
-          <span>Attention</span><b>→</b><span>Conversation</span><b>→</b><span>Understanding</span><b>→</b><span>Action</span>
-        </div>
+        <div class="journey-caption reveal"><span class="caption-line"></span><p><strong>Not a collection of disconnected services.</strong> One customer journey, designed around how your business works.</p></div>
       </div>
     </section>
 
-    <section class="system-map section-shell" id="ads">
-      <div class="section-intro reveal">
+    <section class="system-section section-shell section-space" id="system" aria-labelledby="system-title">
+      <div class="section-heading reveal">
         <div>
-          <h2>Sponsored Ads.<br /><span>More people into the conversation.</span></h2>
+          <p class="eyebrow"><span class="eyebrow-line"></span> WHAT DIGIGURU BUILDS</p>
+          <h2 id="system-title">The right pieces.<br /><em>Connected in the right order.</em></h2>
         </div>
-        <p>We create and manage sponsored advertising on Meta and WhatsApp for businesses that want more leads and customers. The difference is what happens after the click: your campaigns can feed directly into the same conversational sales system.</p>
-      </div>
-      <div class="sponsored-delivery reveal reveal-delay-1">
-        <div class="sponsored-delivery-intro">
-          <span class="mono-label">WHAT WE ACTUALLY MANAGE</span>
-          <p>From the first idea to the weekly optimisation, we stay close to the numbers and the customer journey.</p>
-        </div>
-        <div class="sponsored-services">
-          <article><span>01</span><div><strong>Creation</strong><p>Campaign structure, objectives, audiences and offers.</p></div></article>
-          <article><span>02</span><div><strong>Content</strong><p>Creative concepts and scroll stopping ad content.</p></div></article>
-          <article><span>03</span><div><strong>Copywriting</strong><p>Hooks, primary text, headlines and calls to action.</p></div></article>
-          <article><span>04</span><div><strong>A/B testing</strong><p>Test creatives, hooks, audiences and messages.</p></div></article>
-          <article><span>05</span><div><strong>Optimisation</strong><p>Improve campaigns as real performance comes in.</p></div></article>
-          <article><span>06</span><div><strong>Analysis</strong><p>Read the numbers across attention, leads and conversations.</p></div></article>
-          <article><span>07</span><div><strong>Reporting</strong><p>Clear reporting on spend, performance and what we learned.</p></div></article>
-        </div>
+        <p class="heading-aside">We start with the customer journey, then build the mix of marketing, web, conversation and connected actions your business needs.</p>
       </div>
 
-      <div class="sponsored-bridge reveal reveal-delay-2">
-        <div class="bridge-step"><span>01</span><strong>Sponsored ad</strong><small>Meta · Instagram</small></div>
-        <div class="bridge-arrow">→</div>
-        <div class="bridge-step"><span>02</span><strong>WhatsApp entry</strong><small>Intent captured</small></div>
-        <div class="bridge-arrow">→</div>
-        <div class="bridge-step bridge-step-highlight"><span>03</span><strong>Conversation</strong><small>Lead can keep moving</small></div>
-        <div class="bridge-arrow">→</div>
-        <div class="bridge-step"><span>04</span><strong>Business action</strong><small>Book · order · enquire</small></div>
-      </div>
-      <div class="engine-canvas reveal reveal-delay-3">
-        <div class="canvas-label left-label">TRAFFIC WE CREATE & CAPTURE</div>
-        <div class="canvas-label right-label">WHAT THE BUSINESS CAN DO NEXT</div>
-
-        <div class="engine-column engine-sources">
-          <div class="engine-pill"><span class="source-badge">M</span><div><strong>Meta ads</strong><small>Facebook · Instagram</small></div></div>
-          <div class="engine-pill"><span class="source-badge">T</span><div><strong>TikTok</strong><small>Short form attention</small></div></div>
-          <div class="engine-pill"><span class="source-badge">G</span><div><strong>Google</strong><small>Intent & discovery</small></div></div>
-          <div class="engine-pill"><span class="source-badge">◎</span><div><strong>Organic attention</strong><small>Content · search · referrals</small></div></div>
-        </div>
-
-        <div class="engine-core">
-          <div class="core-glow"></div>
-          <div class="core-shell">
-            <span class="mono-label">DIGIGURU</span>
-            <strong>CONVERSATION<br />LAYER</strong>
-            <small>Built around your business</small>
+      <div class="capability-grid reveal reveal-delay-1">
+        <article class="capability-card capability-discover">
+          <div class="capability-symbol" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><circle cx="14" cy="14" r="8"></circle><path d="m20 20 6 6M10 14h8M14 10v8"></path></svg>
           </div>
-          <svg class="engine-lines" viewBox="0 0 900 480" preserveAspectRatio="none" aria-hidden="true">
-            <path class="line line-left line-l1" d="M 20 80 C 220 80, 270 145, 410 240" />
-            <path class="line line-left line-l2" d="M 20 185 C 220 185, 270 205, 410 240" />
-            <path class="line line-left line-l3" d="M 20 300 C 220 300, 270 280, 410 240" />
-            <path class="line line-left line-l4" d="M 20 405 C 220 405, 270 335, 410 240" />
-            <path class="line line-right line-r1" d="M 490 240 C 650 150, 700 80, 880 80" />
-            <path class="line line-right line-r2" d="M 490 240 C 650 205, 700 185, 880 185" />
-            <path class="line line-right line-r3" d="M 490 240 C 650 280, 700 300, 880 300" />
-            <path class="line line-right line-r4" d="M 490 240 C 650 335, 700 405, 880 405" />
-          </svg>
-        </div>
-
-        <div class="engine-column engine-actions">
-          <div class="engine-pill"><span class="action-badge">01</span><div><strong>Questions</strong><small>Useful answers in context</small></div></div>
-          <div class="engine-pill"><span class="action-badge">02</span><div><strong>Qualification</strong><small>Understand what the customer needs</small></div></div>
-          <div class="engine-pill"><span class="action-badge">03</span><div><strong>Recommendations</strong><small>Products · services · offers</small></div></div>
-          <div class="engine-pill"><span class="action-badge">04</span><div><strong>Bookings · Orders · Quotes</strong><small>Move to a real business action</small></div></div>
-        </div>
+          <span class="capability-number">01 / DISCOVERY</span>
+          <h3>Help people find you</h3>
+          <p>Get in front of the right customers with a connected acquisition plan, not just another campaign.</p>
+          <ul><li>Meta and WhatsApp focused advertising</li><li>Content and creative production</li><li>Campaign copywriting and A/B testing</li><li>SEO and answer engine optimisation</li></ul>
+        </article>
+        <article class="capability-card capability-conversation">
+          <div class="capability-symbol" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M26 15a10 10 0 0 1-10 10 11 11 0 0 1-4.5-1L6 26l1.5-5A9.5 9.5 0 0 1 6 15a10 10 0 0 1 20 0Z"></path><path d="M11 15h.1M16 15h.1M21 15h.1"></path></svg>
+          </div>
+          <span class="capability-number">02 / CONVERSATION</span>
+          <h3>Help customers decide</h3>
+          <p>Give interested people clear answers and guide them towards the most useful next step.</p>
+          <ul><li>Business specific WhatsApp Concierge</li><li>Product and service guidance</li><li>Enquiry qualification and details capture</li><li>Human handoff with context</li></ul>
+        </article>
+        <article class="capability-card capability-action">
+          <div class="capability-symbol" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><rect x="6" y="5" width="20" height="22" rx="3"></rect><path d="M11 12h10M11 17h10M11 22h5"></path><path d="m20 22 2 2 4-5"></path></svg>
+          </div>
+          <span class="capability-number">03 / BUSINESS ACTION</span>
+          <h3>Help the business follow through</h3>
+          <p>Connect customer intent to the booking, order, quote, record or team action that comes next.</p>
+          <ul><li>Website and booking flows</li><li>Calendar and CRM connections</li><li>Follow up and internal notifications</li><li>Measurement and ongoing improvement</li></ul>
+        </article>
       </div>
+
+      <div class="definition-bar reveal"><span class="definition-mark">DG</span><p><strong>SEO</strong> helps people discover you through search. <strong>AEO</strong> helps your business information surface clearly in answer led and AI powered search experiences. Both belong at the discovery stage of a working customer journey.</p></div>
     </section>
 
-    <section class="concierge section-shell" id="concierge">
-      <div class="concierge-grid">
+    <section class="concierge-section section-space" id="concierge" aria-labelledby="concierge-title">
+      <div class="section-shell concierge-layout">
         <div class="concierge-copy reveal">
-          <h2>A Concierge that understands your business.</h2>
-          <p class="concierge-lede">Your customers can ask questions and get useful answers based on your actual business, your products, your services, your offers and the way you operate.</p>
-          <div class="knowledge-orbit">
-            <span>Products</span><span>Services</span><span>FAQs</span><span>Policies</span><span>Availability</span><span>Brand voice</span>
-            <div class="knowledge-core">DG</div>
-          </div>
+          <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> A BUSINESS SPECIFIC CONCIERGE</p>
+          <h2 id="concierge-title">Useful answers.<br /><em>A clear next step.</em></h2>
+          <p>The Concierge is shaped around the business it represents: what it sells, how it works, the questions customers ask and the actions they can take.</p>
+          <div class="context-chips"><span>Products & services</span><span>Prices & offers</span><span>FAQs & policies</span><span>Availability</span><span>Brand voice</span></div>
+          <p class="concierge-disclaimer">The conversation below is an illustrative demo, not a live booking system.</p>
         </div>
 
-        <div class="chat-panel reveal reveal-delay-1">
-          <div class="chat-panel-head">
-            <div class="chat-avatar">DG</div>
-            <div><strong>DigiGuru Concierge</strong><span>Business context connected</span></div>
-            <span class="chat-live"><i></i> Live</span>
+        <div class="demo-window reveal reveal-delay-1">
+          <div class="demo-topbar">
+            <div class="demo-brand-icon"><img src="favicon.svg" alt="" width="34" height="34" /></div>
+            <div class="demo-brand-copy"><strong>Your business Concierge</strong><span><i></i> Demonstration</span></div>
+            <span class="demo-dots" aria-hidden="true">•••</span>
           </div>
-          <div class="chat-messages" id="chat-messages">
-            <div class="chat-message customer"><small>Customer</small><p>I need something for Saturday. What would you recommend?</p></div>
-            <div class="chat-message agent"><small>Concierge</small><p>Absolutely. Is this for a regular appointment, something specific, or a special occasion?</p></div>
-            <div class="chat-message customer"><small>Customer</small><p>A special occasion.</p></div>
-            <div class="chat-message agent"><small>Concierge</small><p>Got it. I can narrow the options, explain the difference and then check Saturday availability.</p></div>
+          <div class="demo-context"><span class="context-pulse"></span><div><strong>Business context ready</strong><small>Services · policies · next steps</small></div><span class="context-check">✓</span></div>
+          <div class="demo-messages" aria-live="polite" aria-atomic="true">
+            <div class="demo-message demo-message-bot"><span>CONCIERGE</span><p>Hello! What would you like help with today?</p></div>
+            <div class="demo-message demo-message-customer" id="demo-customer"><span>CUSTOMER</span><p id="demo-customer-text">I'd like to know if I can book for Saturday.</p></div>
+            <div class="demo-message demo-message-bot" id="demo-reply"><span>CONCIERGE</span><p id="demo-reply-text">I can collect your preferred time and the service you need, then guide you through the business's appointment process.</p></div>
           </div>
-          <div class="chat-choices" id="chat-choices">
-            <button type="button" data-choice="Show me the best options">Show me the best options</button>
-            <button type="button" data-choice="Check Saturday availability">Check Saturday availability</button>
+          <div class="demo-prompt-label">TRY ANOTHER CUSTOMER QUESTION</div>
+          <div class="demo-choices">
+            <button type="button" data-demo="price">“How much does it cost?”</button>
+            <button type="button" data-demo="product">“Which option is right for me?”</button>
+            <button type="button" data-demo="book">“I'd like to book.”</button>
           </div>
-          <div class="chat-panel-foot"><span>Connected to business rules</span><span>↗</span></div>
+          <div class="demo-window-foot"><span><i></i> Answers depend on the information and connections configured for each business.</span></div>
         </div>
       </div>
     </section>
 
-    <section class="connections section-dark-soft" id="connections">
+    <section class="work-section section-shell section-space" id="work" aria-labelledby="work-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> WORK BUILT AROUND REAL BUSINESSES</p>
+          <h2 id="work-title">The journey looks different<br /><em>for every business.</em></h2>
+        </div>
+        <p class="heading-aside">The best way to understand the work is to see how the customer journey changes for a real business, from the first page to the next action.</p>
+      </div>
+
+      <article class="case-study reveal reveal-delay-1">
+        <div class="case-study-copy">
+          <div class="case-meta"><span class="case-tag">WEBSITE + BOOKING FLOW</span><span class="case-status"><i></i> PROJECT DELIVERY</span></div>
+          <p class="case-client-kicker">HEALTHCARE / PATIENT EXPERIENCE</p>
+          <h3>Lavington Green<br /><em>Dental Suite</em></h3>
+          <p class="case-lede">We built the full website and a functioning appointment booking flow, giving patients a clear route from exploring the clinic to sharing their appointment needs and moving into the clinic's booking process.</p>
+
+          <div class="case-build-list">
+            <div><span>01</span><p><strong>A website built around patients</strong>Clear, responsive pages for dental services, the practice, its team and facilities, with the information patients need before they get in touch.</p></div>
+            <div><span>02</span><p><strong>Trust and discovery</strong>A structured patient experience with clinic details, contact routes and review content that helps visitors understand the practice.</p></div>
+            <div><span>03</span><p><strong>An appointment Concierge</strong>A guided booking journey that helps patients express what they need and provide the information required for the next step.</p></div>
+            <div><span>04</span><p><strong>A functioning appointment workflow</strong>The journey carries appointment details into the clinic's booking process, with a defined next step rather than leaving the patient in a general enquiry thread.</p></div>
+          </div>
+
+          <div class="case-actions"><a class="button button-light-outline" href="https://lavingtongreendental.co.ke/" target="_blank" rel="noopener noreferrer">Visit the live website <span aria-hidden="true">↗</span></a><span>Designed for desktop and mobile</span></div>
+        </div>
+
+        <div class="case-study-visual" aria-label="Illustration of the Lavington Green Dental website and appointment journey">
+          <div class="browser-frame">
+            <div class="browser-chrome"><div class="browser-lights"><i></i><i></i><i></i></div><span>lavingtongreendental.co.ke</span><span class="browser-menu">☰</span></div>
+            <div class="dental-mock">
+              <div class="dental-mock-nav"><span class="dental-mark">LGD</span><span>CARE <b>·</b> COMFORT <b>·</b> CONFIDENCE</span></div>
+              <div class="dental-mock-main">
+                <span class="dental-overline">LAVINGTON GREEN DENTAL SUITE</span>
+                <div class="dental-mock-heading">Your smile<br /><em>matters here.</em></div>
+                <p>Thoughtful dental care, with your comfort at the centre.</p>
+                <span class="dental-mock-button">BOOK AN APPOINTMENT <b>↗</b></span>
+              </div>
+              <div class="dental-mock-bottom"><span>GENERAL DENTISTRY</span><span>COSMETIC CARE</span><span>PATIENT FIRST</span></div>
+            </div>
+          </div>
+          <div class="booking-flow-card">
+            <div class="booking-flow-heading"><span class="booking-flow-icon">✓</span><div><span class="mono-label">APPOINTMENT CONCIERGE</span><strong>A clearer patient booking flow</strong></div></div>
+            <div class="booking-steps">
+              <div class="booking-step"><span>1</span><p><strong>Explore the clinic</strong><small>Services, team and essential information</small></p><b>✓</b></div>
+              <div class="booking-step"><span>2</span><p><strong>Share appointment needs</strong><small>Service, preferred time and contact details</small></p><b>✓</b></div>
+              <div class="booking-step"><span>3</span><p><strong>Move into the booking process</strong><small>Request routed for clinic follow through</small></p><b>↗</b></div>
+            </div>
+            <div class="booking-flow-foot"><span class="booking-live-dot"></span> Website → appointment request → clinic workflow</div>
+          </div>
+        </div>
+      </article>
+
+      <div class="case-study-note reveal"><span class="note-symbol">↳</span><p><strong>The work is more than a website.</strong> It is the journey around it: the information a patient sees, the questions they can ask and how they move towards an appointment. No performance numbers are shown here because measured results have not been added to this case study.</p></div>
+    </section>
+
+    <section class="process-section section-space" id="process" aria-labelledby="process-title">
       <div class="section-shell">
-        <div class="section-intro section-intro-dark reveal">
+        <div class="section-heading section-heading-light reveal">
           <div>
-            <h2>The conversation can actually lead somewhere.</h2>
+            <p class="eyebrow"><span class="eyebrow-line"></span> FROM BUSINESS PROBLEM TO WORKING SYSTEM</p>
+            <h2 id="process-title">Understand first.<br /><em>Build with a purpose.</em></h2>
           </div>
-          <p>A useful conversation should not end with “Thanks for reaching out.” It should help the customer take the next step.</p>
+          <p class="heading-aside">The journey comes before the technology. We learn how your customers buy, find the points of friction and build around what needs to happen next.</p>
         </div>
 
-        <div class="connection-stage reveal reveal-delay-1">
-          <div class="connection-center"><span>CONCIERGE</span><strong>Your business<br />in conversation.</strong><i>DG</i></div>
-          <div class="connection-node n1"><strong>CRM</strong><span>Lead context</span></div>
-          <div class="connection-node n2"><strong>Calendar</strong><span>Availability</span></div>
-          <div class="connection-node n3"><strong>Catalogue</strong><span>Products & services</span></div>
-          <div class="connection-node n4"><strong>Booking</strong><span>Next step</span></div>
-          <div class="connection-node n5"><strong>Follow up</strong><span>Continue the journey</span></div>
-          <div class="connection-node n6"><strong>Human team</strong><span>Handoff with context</span></div>
-        </div>
-
-        <div class="impact-grid">
-          <article class="impact-card reveal"><span>01</span><h3>Less waiting</h3><p>Customers get useful responses while intent is still warm.</p></article>
-          <article class="impact-card reveal reveal-delay-1"><span>02</span><h3>Less repetition</h3><p>The conversation can carry the context forward instead of starting again.</p></article>
-          <article class="impact-card reveal reveal-delay-2"><span>03</span><h3>Clearer action</h3><p>The next step is part of the conversation, not a separate scavenger hunt.</p></article>
-          <article class="impact-card reveal reveal-delay-3"><span>04</span><h3>Better handoffs</h3><p>Your team can step in with the customer context already gathered.</p></article>
+        <div class="process-flow reveal reveal-delay-1">
+          <article><span class="process-number">01</span><div class="process-icon" aria-hidden="true">⌕</div><h3>Understand</h3><p>Your customers, offer, current channels and how the business sells.</p></article>
+          <div class="process-arrow" aria-hidden="true">→</div>
+          <article><span class="process-number">02</span><div class="process-icon" aria-hidden="true">⌁</div><h3>Map the flow</h3><p>What should happen from first interest to booking, order or sale?</p></article>
+          <div class="process-arrow" aria-hidden="true">→</div>
+          <article><span class="process-number">03</span><div class="process-icon" aria-hidden="true">▧</div><h3>Build and test</h3><p>Configure the journey, connect the tools and test real scenarios.</p></article>
+          <div class="process-arrow" aria-hidden="true">→</div>
+          <article><span class="process-number">04</span><div class="process-icon" aria-hidden="true">↻</div><h3>Improve</h3><p>Learn from enquiries and outcomes, then refine the parts that need it.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="impact-story section-shell">
-      <div class="section-intro reveal">
-        <div>
-          <h2>What changes for your business?</h2>
-        </div>
-        <p>The goal is simple: less friction between a lead arriving and a real business action happening.</p>
+    <section class="contact-section section-shell section-space" id="contact" aria-labelledby="contact-title">
+      <div class="contact-intro reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> START WITH THE CUSTOMER JOURNEY</p>
+        <h2 id="contact-title">What happens after<br /><em>someone contacts you?</em></h2>
+        <p>Tell us a little about your business and where customers tend to get stuck. We will use that as the starting point for a practical conversation about your sales journey.</p>
+        <div class="contact-promise"><span aria-hidden="true">↗</span><p><strong>No generic pitch.</strong><br />Start with your business, your customer and the next action you need to make easier.</p></div>
       </div>
 
-      <div class="impact-split reveal reveal-delay-1">
-        <div class="impact-column before-column">
-          <div class="impact-column-top"><span>WITHOUT A CONNECTED JOURNEY</span><b>Friction</b></div>
-          <div class="impact-list">
-            <div><span>01</span><p>Lead arrives in a different inbox</p><i>↘</i></div>
-            <div><span>02</span><p>Customer asks a basic question</p><i>↘</i></div>
-            <div><span>03</span><p>Someone has to remember to respond</p><i>↘</i></div>
-            <div><span>04</span><p>Next step is not obvious</p><i>↘</i></div>
-            <div><span>05</span><p>Follow up depends on someone remembering</p><i>↘</i></div>
-          </div>
-        </div>
-        <div class="impact-connector"><span>SHIFT</span><strong>→</strong></div>
-        <div class="impact-column after-column">
-          <div class="impact-column-top"><span>WITH DIGIGURU</span><b>Momentum</b></div>
-          <div class="impact-list">
-            <div><span>01</span><p>Lead enters a useful conversation</p><i>↗</i></div>
-            <div><span>02</span><p>Questions are understood in context</p><i>↗</i></div>
-            <div><span>03</span><p>Relevant information is ready</p><i>↗</i></div>
-            <div><span>04</span><p>Conversation guides the next action</p><i>↗</i></div>
-            <div><span>05</span><p>Systems and people get the context they need</p><i>↗</i></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="any-business section-shell" id="business">
-      <div class="section-intro reveal"><div><h2>Your business is different.<br /><span>The system should be too.</span></h2></div><p>Whether you need to book an appointment, place an order, request a quote, ask about a product, check availability or make an enquiry, the conversation should lead somewhere useful.</p></div>
-      <div class="business-actions reveal reveal-delay-1"><div><strong>Book an appointment</strong><span>Move from question to confirmed time.</span></div><div><strong>Place an order</strong><span>Guide customers to the right product.</span></div><div><strong>Request a quote</strong><span>Capture what the team needs to respond.</span></div><div><strong>Make an enquiry</strong><span>Answer questions and keep intent moving.</span></div></div>
-    </section>
-
-    <section class="work section-shell" id="work">
-      <div class="section-intro reveal">
-        <div>
-          <h2>Different businesses.<br /><span>Different conversations.</span></h2>
-        </div>
-        <p>We do not sell one identical conversation. We build around where the business is losing momentum.</p>
-      </div>
-
-      <div class="case-timeline reveal reveal-delay-1">
-        <article class="case-row">
-          <div class="case-index">01</div>
-          <div class="case-main"><span class="case-type">FOOD & COMMERCE</span><h3>Noka Foods</h3><p>Bring paid social and TikTok attention into a more direct WhatsApp ordering journey, where customers can ask about products and move toward purchase.</p><div class="case-route"><span>Social</span><b>→</b><span>WhatsApp</span><b>→</b><span>Product questions</span><b>→</b><strong>Order</strong></div></div>
-          <div class="case-marker"><span>Customer intent</span><strong>“I want to buy.”</strong></div>
-        </article>
-        <article class="case-row">
-          <div class="case-index">02</div>
-          <div class="case-main"><span class="case-type">SERVICES</span><h3>Eish Accessories</h3><p>Turn Meta, Facebook and LinkedIn enquiries into structured conversations that can respond faster, qualify the need and keep the next step visible.</p><div class="case-route"><span>Lead</span><b>→</b><span>WhatsApp</span><b>→</b><span>Qualification</span><b>→</b><strong>Follow up</strong></div></div>
-          <div class="case-marker"><span>Customer intent</span><strong>“Can you help?”</strong></div>
-        </article>
-        <article class="case-row">
-          <div class="case-index">03</div>
-          <div class="case-main"><span class="case-type">HEALTHCARE</span><h3>Lavington Green Dental</h3><p>Connect website and social discovery to WhatsApp conversations, appointment intent and a more consistent patient experience.</p><div class="case-route"><span>Discovery</span><b>→</b><span>Questions</span><b>→</b><span>WhatsApp</span><b>→</b><strong>Appointment</strong></div></div>
-          <div class="case-marker"><span>Customer intent</span><strong>“I'd like to book.”</strong></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="process section-dark" id="how">
-      <div class="section-shell">
-        <div class="section-intro section-intro-dark reveal">
-          <div>
-            <h2>Built around how your business actually sells.</h2>
-          </div>
-          <p>First we understand how customers buy from you. Then we design the conversation and connect the parts that need to work together.</p>
-        </div>
-        <div class="process-line">
-          <article class="process-step reveal"><span>01</span><div class="process-rule"></div><h3>Map the business</h3><p>Offers, customers, questions, process, availability and handoffs.</p></article>
-          <article class="process-step reveal reveal-delay-1"><span>02</span><div class="process-rule"></div><h3>Map the conversation</h3><p>What should happen from “I'm interested” to the next real action?</p></article>
-          <article class="process-step reveal reveal-delay-2"><span>03</span><div class="process-rule"></div><h3>Build the system</h3><p>Channels, knowledge, Concierge behaviour and connected actions.</p></article>
-          <article class="process-step reveal reveal-delay-3"><span>04</span><div class="process-rule"></div><h3>Test real scenarios</h3><p>Real questions, objections, edge cases and human handoffs.</p></article>
-          <article class="process-step reveal reveal-delay-4"><span>05</span><div class="process-rule"></div><h3>Improve over time</h3><p>Find friction in the live journey and keep refining the system.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="not-agency section-shell">
-      <div class="not-agency-grid reveal">
-        <div>
-          <p class="kicker"><span class="kicker-dot"></span> A different kind of company</p>
-          <h2>One system.<br /><span>Built around the business.</span></h2>
-        </div>
-        <div class="not-agency-list">
-          <div><span>01</span><p>Bring attention in through sponsored ads, organic content, search or referrals.</p></div>
-          <div><span>02</span><p>Give customers a clear place to learn, ask questions and start a conversation.</p></div>
-          <div><span>03</span><p>Build the conversational layer around your offers, customers and way of selling.</p></div>
-          <div><span>04</span><p>Connect the conversation to bookings, orders, quotes, your systems and your team.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta section-dark" id="contact">
-      <div class="section-shell final-shell reveal">
-        <h2>You are already<br /><span>generating attention.</span></h2>
-        <p>Let's look at what happens after the click and build a better path from interest to action.</p>
-        <div class="final-actions">
-          <a class="button button-gold" data-whatsapp-cta href="#contact">Start a conversation on WhatsApp <span>↗</span></a>
-          <span class="cta-note">WhatsApp number can be added in one place before launch.</span>
-        </div>
-      </div>
-      <div class="final-orbit orbit-f1"></div><div class="final-orbit orbit-f2"></div>
+      <form class="contact-form reveal reveal-delay-1" name="growth-conversation" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="growth-conversation" />
+        <p class="honeypot-field" hidden><label>Leave this field empty <input name="bot-field" /></label></p>
+        <div class="form-heading"><span class="mono-label">LET'S MAP THE GAP</span><span class="form-required"><i>*</i> Required fields</span></div>
+        <label class="form-field"><span>Your name <i>*</i></span><input type="text" name="name" autocomplete="name" placeholder="Name" required /></label>
+        <label class="form-field"><span>Business name <i>*</i></span><input type="text" name="business" autocomplete="organization" placeholder="Your business" required /></label>
+        <label class="form-field"><span>Email address <i>*</i></span><input type="email" name="email" autocomplete="email" placeholder="you@business.com" required /></label>
+        <label class="form-field"><span>What would you like to improve?</span><select name="main-goal">
+          <option value="">Choose the closest fit</option>
+          <option>Getting more of the right enquiries</option>
+          <option>Responding and qualifying leads</option>
+          <option>Online bookings or appointment flow</option>
+          <option>Product questions and orders</option>
+          <option>Follow up and customer records</option>
+          <option>SEO, AEO and being discovered</option>
+          <option>I'm not sure yet</option>
+        </select></label>
+        <label class="form-field"><span>Where do customers tend to get stuck?</span><textarea name="customer-journey" rows="3" placeholder="A sentence or two is enough."></textarea></label>
+        <button class="button button-gold form-submit" type="submit">Start the conversation <span aria-hidden="true">↗</span></button>
+        <p class="form-privacy">Your details will be used to follow up about this enquiry.</p>
+      </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="section-shell footer-inner">
-      <a href="#top" class="footer-brand"><span class="brand-symbol">DG</span><span>DigiGuru</span></a>
-      <div class="footer-copy"><span>Conversational sales systems</span><span>© <span id="year"></span> DigiGuru</span></div>
-      <a href="#top" class="back-top">Back to top ↑</a>
+  <footer class="site-footer">
+    <div class="footer-main section-shell">
+      <a class="brand footer-brand" href="#top" aria-label="DigiGuru home"><img src="digiguru-logo.png" width="200" height="49" alt="DigiGuru. Better systems. More customers." class="brand-logo" /></a>
+      <p>Conversational sales systems that connect attention to action.</p>
+      <a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
+    <div class="footer-bottom section-shell"><span>© <span id="year"></span> DigiGuru</span><span>Attract. Converse. Convert. Continue.</span></div>
   </footer>
 
   <script src="script.js"></script>

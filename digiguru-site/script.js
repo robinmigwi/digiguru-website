@@ -1,115 +1,129 @@
-const WHATSAPP_NUMBER = '';
-
-const waLinks = document.querySelectorAll('[data-whatsapp-cta]');
-const progress = document.querySelector('#page-progress-bar');
-const menuButton = document.querySelector('.menu-button');
-const mobileMenu = document.querySelector('#mobile-menu');
-const closeMenuLinks = document.querySelectorAll('[data-close-menu]');
+const menuButton = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('#mobile-menu');
+const progressBar = document.querySelector('#page-progress-bar');
 const year = document.querySelector('#year');
-const chatChoices = document.querySelector('#chat-choices');
-const chatMessages = document.querySelector('#chat-messages');
 
-function setupWhatsAppLinks() {
-  waLinks.forEach((link) => {
-    if (WHATSAPP_NUMBER.trim()) {
-      const cleanNumber = WHATSAPP_NUMBER.replace(/\D/g, '');
-      const message = encodeURIComponent('Hi DigiGuru, I would like to understand how a conversational sales system could work for my business.');
-      link.href = `https://wa.me/${cleanNumber}?text=${message}`;
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-      link.removeAttribute('aria-disabled');
-    } else {
-      link.href = '#contact';
-      link.removeAttribute('target');
-      link.setAttribute('aria-disabled', 'true');
-    }
-  });
-}
-
-function updateProgress() {
-  const scrollTop = window.scrollY;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = `${height > 0 ? (scrollTop / height) * 100 : 0}%`;
-}
-
-function toggleMenu(force) {
-  const open = typeof force === 'boolean' ? force : menuButton.getAttribute('aria-expanded') !== 'true';
+function setMenu(open) {
+  if (!menuButton || !mobileNav) return;
   menuButton.setAttribute('aria-expanded', String(open));
-  mobileMenu.hidden = !open;
+  menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  mobileNav.hidden = !open;
   document.body.classList.toggle('menu-open', open);
 }
 
-menuButton?.addEventListener('click', () => toggleMenu());
-closeMenuLinks.forEach((link) => link.addEventListener('click', () => toggleMenu(false)));
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') toggleMenu(false);
+menuButton?.addEventListener('click', () => {
+  setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
 });
 
-const revealObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-const responseLibrary = {
-  'Show me the best options': 'I can narrow them down using the business catalogue and the reason you are buying. Then I can guide you to the right option without making you start over.',
-  'Check Saturday availability': 'I can move this conversation toward the calendar, keep the customer context attached, and hand the team the details when a human needs to step in.'
-};
-
-chatChoices?.addEventListener('click', (event) => {
-  const button = event.target.closest('button[data-choice]');
-  if (!button) return;
-  const choice = button.dataset.choice;
-  button.disabled = true;
-
-  const customer = document.createElement('div');
-  customer.className = 'chat-message customer';
-  customer.innerHTML = `<small>Customer</small><p>${choice}</p>`;
-  chatMessages.appendChild(customer);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-
-  window.setTimeout(() => {
-    const agent = document.createElement('div');
-    agent.className = 'chat-message agent';
-    agent.innerHTML = `<small>Concierge</small><p>${responseLibrary[choice] || 'I can guide the customer to the next useful action while keeping the conversation connected to the business.'}</p>`;
-    chatMessages.appendChild(agent);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    button.disabled = false;
-  }, 520);
+mobileNav?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => setMenu(false));
 });
 
-setupWhatsAppLinks();
-updateProgress();
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setMenu(false);
+});
+
+function updateProgress() {
+  if (!progressBar) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+}
+
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
+updateProgress();
+
 if (year) year.textContent = new Date().getFullYear();
 
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}
 
-const leakNodes = Array.from(document.querySelectorAll('.leak-node'));
-let leakTimer;
-function cycleLeakJourney() {
-  if (!leakNodes.length) return;
-  let active = 0;
-  leakNodes.forEach((node) => node.classList.remove('journey-active'));
-  leakNodes[active].classList.add('journey-active');
-  leakTimer = window.setInterval(() => {
-    leakNodes.forEach((node) => node.classList.remove('journey-active'));
-    active = (active + 1) % leakNodes.length;
-    leakNodes[active].classList.add('journey-active');
-  }, 1300);
+// Keep the navigation's active section in sync with the customer's position on the page.
+const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"], .mobile-nav a[href^="#"]')];
+const navTargets = [...new Set(navLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter((target) => target && target.id && target.id !== 'top'))];
+
+if ('IntersectionObserver' in window && !motionReduced) {
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        const active = link.getAttribute('href') === `#${entry.target.id}`;
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+        link.classList.toggle('is-active', active);
+      });
+    });
+  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  navTargets.forEach((target) => navObserver.observe(target));
+
+  // The hero diagram highlights each stage as it passes through the visual focus area.
+  const flowStages = [...document.querySelectorAll('.hero-art .flow-card, .hero-art .concierge-card, .hero-art .outcome-row')];
+  const flowObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        flowStages.forEach((stage) => stage.classList.toggle('is-flow-active', stage === entry.target));
+      } else {
+        entry.target.classList.remove('is-flow-active');
+      }
+    });
+  }, { rootMargin: '-28% 0px -38% 0px', threshold: 0.15 });
+  flowStages.forEach((stage) => flowObserver.observe(stage));
 }
-const leakScene = document.querySelector('.leak-scene');
-if (leakScene) {
-  const leakObserver = new IntersectionObserver((entries, observer) => {
-    if (entries.some((entry) => entry.isIntersecting)) {
-      cycleLeakJourney();
-      observer.disconnect();
-    }
-  }, { threshold: 0.25 });
-  leakObserver.observe(leakScene);
-}
+
+const demoResponses = {
+  price: {
+    customer: 'How much does it cost?',
+    reply: 'I can explain the relevant pricing using the business information available, clarify what is included and guide you to a quote or the right person if your needs are more specific.'
+  },
+  product: {
+    customer: 'Which option is right for me?',
+    reply: 'Tell me a little about what you need. I can use the business catalogue and service details to narrow down suitable options, explain the differences and help you decide what to do next.'
+  },
+  book: {
+    customer: "I'd like to book.",
+    reply: 'I can collect the service you need and your preferred date or time, then guide you through the booking process configured for this business. The team can step in when confirmation is needed.'
+  }
+};
+
+const demoButtons = document.querySelectorAll('[data-demo]');
+const demoCustomer = document.querySelector('#demo-customer-text');
+const demoReply = document.querySelector('#demo-reply-text');
+
+demoButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const response = demoResponses[button.dataset.demo];
+    if (!response || !demoCustomer || !demoReply) return;
+    demoCustomer.textContent = response.customer;
+    demoReply.textContent = response.reply;
+    [demoCustomer, demoReply].forEach((message) => {
+      message.classList.remove('message-swap');
+      void message.offsetWidth;
+      message.classList.add('message-swap');
+    });
+    demoButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+  });
+});
+
+const contactForm = document.querySelector('.contact-form');
+contactForm?.querySelectorAll('input, select, textarea').forEach((field) => {
+  field.addEventListener('invalid', () => field.setAttribute('aria-invalid', 'true'));
+  field.addEventListener('input', () => {
+    if (field.checkValidity()) field.removeAttribute('aria-invalid');
+  });
+});
