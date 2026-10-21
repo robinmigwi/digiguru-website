@@ -51,6 +51,41 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
+// Keep the navigation's active section in sync with the customer's position on the page.
+const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const navLinks = [...document.querySelectorAll('.desktop-nav a[href^="#"], .mobile-nav a[href^="#"]')];
+const navTargets = [...new Set(navLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter((target) => target && target.id && target.id !== 'top'))];
+
+if ('IntersectionObserver' in window && !motionReduced) {
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) => {
+        const active = link.getAttribute('href') === `#${entry.target.id}`;
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+        link.classList.toggle('is-active', active);
+      });
+    });
+  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  navTargets.forEach((target) => navObserver.observe(target));
+
+  // The hero diagram highlights each stage as it passes through the visual focus area.
+  const flowStages = [...document.querySelectorAll('.hero-art .flow-card, .hero-art .concierge-card, .hero-art .outcome-row')];
+  const flowObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        flowStages.forEach((stage) => stage.classList.toggle('is-flow-active', stage === entry.target));
+      } else {
+        entry.target.classList.remove('is-flow-active');
+      }
+    });
+  }, { rootMargin: '-28% 0px -38% 0px', threshold: 0.15 });
+  flowStages.forEach((stage) => flowObserver.observe(stage));
+}
+
 const demoResponses = {
   price: {
     customer: 'How much does it cost?',
@@ -76,6 +111,11 @@ demoButtons.forEach((button) => {
     if (!response || !demoCustomer || !demoReply) return;
     demoCustomer.textContent = response.customer;
     demoReply.textContent = response.reply;
+    [demoCustomer, demoReply].forEach((message) => {
+      message.classList.remove('message-swap');
+      void message.offsetWidth;
+      message.classList.add('message-swap');
+    });
     demoButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
   });
 });
