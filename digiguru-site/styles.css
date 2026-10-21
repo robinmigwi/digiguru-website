@@ -42,6 +42,8 @@ img,svg{display:block;max-width:100%}
 .nav-shell{width:min(1280px,calc(100% - 48px));height:82px;margin:auto;display:flex;align-items:center;gap:34px}
 .brand{display:inline-flex;align-items:center;gap:11px;flex:none}
 .brand-mark{width:38px;height:38px;border-radius:12px;box-shadow:0 5px 16px rgba(16,55,44,.14)}
+.brand-logo{display:block;width:190px;height:auto;max-width:100%;object-fit:contain}
+.footer-brand .brand-logo{width:185px}
 .brand-word{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-1.15px;color:var(--forest);line-height:1}
 .brand-word span{color:var(--teal)}
 .desktop-nav{display:flex;align-items:center;gap:clamp(17px,2.5vw,34px);margin-left:auto}
@@ -420,6 +422,8 @@ img,svg{display:block;max-width:100%}
   .section-shell{width:calc(100% - 34px)}
   .nav-shell{width:calc(100% - 34px);height:68px}
   .brand-mark{width:34px;height:34px}
+  .brand-logo{width:158px}
+  .footer-brand .brand-logo{width:152px}
   .brand-word{font-size:22px}
   .hero{padding-top:49px;padding-bottom:48px;gap:35px}
   .hero h1{font-size:clamp(43px,12vw,60px);letter-spacing:-2.8px;line-height:1}
