@@ -15,10 +15,10 @@
   --line:#e0e4d9;
   --line-dark:rgba(246,243,234,.15);
   --alert:#a86e45;
-  --display:'Bricolage Grotesque',sans-serif;
-  --body:'DM Sans',sans-serif;
-  --serif:'Instrument Serif',serif;
-  --mono:'DM Mono',monospace;
+  --display:'Manrope',sans-serif;
+  --body:'Manrope',sans-serif;
+  --serif:'DM Serif Display',Georgia,serif;
+  --mono:'Manrope',sans-serif;
   --shell:1160px;
   --shadow:0 22px 65px rgba(9,39,31,.09);
 }
@@ -543,6 +543,86 @@ img,svg{display:block;max-width:100%}
   .back-top{font-size:10px}
   .footer-bottom{font-size:8px;flex-wrap:wrap;gap:9px}
 }
+
+/* Lavington Green Dental typography pairing and a more tactile motion system */
+.hero h1{letter-spacing:-.045em;line-height:1}
+.hero h1 em{letter-spacing:-.025em}
+.section-heading h2,.concierge-copy h2,.case-study-copy h3,.contact-intro h2,.thank-you-card h1{letter-spacing:-.035em}
+.section-heading h2 em,.concierge-copy h2 em,.case-study-copy h3 em,.contact-intro h2 em,.thank-you-card h1 em{letter-spacing:-.015em}
+.mono-label,.eyebrow,.flow-step,.node-index,.case-tag,.case-status,.footer-bottom,.signal-intro,.signal-step span,.process-number{font-family:var(--mono);font-weight:700}
+.button span,.text-link span{transition:transform .24s cubic-bezier(.2,.7,.2,1)}
+.button-dark:hover span{transform:translate(2px,-2px)}
+.button-gold:hover span{transform:translateY(3px)}
+.text-link:hover span{transform:translate(3px,-1px)}
+
+.hero-art{isolation:isolate}
+.hero-art::before{content:"";position:absolute;z-index:0;top:-155px;right:-115px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(69,185,163,.16),rgba(69,185,163,0) 70%);pointer-events:none;animation:ambient-glow 15s ease-in-out infinite alternate}
+.hero-art>.art-topline,.hero-art>.source-row,.hero-art>.flow-connector,.hero-art>.flow-card,.hero-art>.concierge-card,.hero-art>.outcome-row,.hero-art>.art-footer{position:relative;z-index:1}
+.hero-art>.source-row{animation:soft-reveal .68s ease .04s both}
+.hero-art>.flow-card:nth-child(4){animation:soft-reveal .68s ease .12s both}
+.hero-art>.flow-card:nth-child(6){animation:soft-reveal .68s ease .24s both}
+.hero-art>.concierge-card:nth-child(8){animation:soft-reveal .68s ease .36s both}
+.hero-art>.outcome-row:nth-child(10){animation:soft-reveal .68s ease .48s both}
+.art-decoration-one{animation:orbit-drift 10s ease-in-out infinite alternate}
+.art-decoration-two{animation:orbit-drift 12s ease-in-out -4s infinite alternate-reverse}
+.source-chip{transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.source-chip:hover{transform:translateY(-3px);border-color:#b5d8cb;box-shadow:0 8px 17px rgba(9,39,31,.06)}
+.flow-card,.concierge-card{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease}
+.flow-card:hover,.concierge-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(9,39,31,.08)}
+.flow-card.is-flow-active{border-color:var(--teal);box-shadow:0 0 0 3px rgba(69,185,163,.13),0 8px 18px rgba(9,39,31,.05)}
+.concierge-card.is-flow-active{box-shadow:0 0 0 3px rgba(216,185,108,.2),0 8px 18px rgba(9,39,31,.05)}
+.outcome-row.is-flow-active{border-radius:8px;background:rgba(69,185,163,.08)}
+.flow-status i,.live-dot,.booking-live-dot{animation:status-breathe 2.4s ease-in-out infinite}
+
+.journey-card{position:relative;overflow:hidden;transition:transform .32s cubic-bezier(.2,.7,.2,1),background .32s ease,border-color .32s ease,box-shadow .32s ease}
+.journey-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--gold);transform:scaleX(.15);transform-origin:left;transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+.journey-card:hover{transform:translateY(-5px);border-color:rgba(216,185,108,.55);background:rgba(255,255,255,.085);box-shadow:0 18px 36px rgba(0,0,0,.12)}
+.journey-card:hover::before{transform:scaleX(1)}
+.journey-card-icon{transition:transform .28s ease,background .28s ease}
+.journey-card:hover .journey-card-icon{transform:rotate(-8deg) scale(1.07)}
+.journey-grid.is-visible .journey-card,.capability-grid.is-visible .capability-card,.process-flow.is-visible article{animation:soft-reveal .62s ease both}
+.journey-grid.is-visible .journey-card:nth-of-type(1),.capability-grid.is-visible .capability-card:nth-child(1),.process-flow.is-visible article:nth-of-type(1){animation-delay:.06s}
+.journey-grid.is-visible .journey-card:nth-of-type(2),.capability-grid.is-visible .capability-card:nth-child(2),.process-flow.is-visible article:nth-of-type(2){animation-delay:.14s}
+.journey-grid.is-visible .journey-card:nth-of-type(3),.capability-grid.is-visible .capability-card:nth-child(3),.process-flow.is-visible article:nth-of-type(3){animation-delay:.22s}
+.journey-grid.is-visible .journey-card:nth-of-type(4),.process-flow.is-visible article:nth-of-type(4){animation-delay:.30s}
+.gap-node,.capability-card{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
+.gap-node:hover{transform:translateY(-4px);border-color:#b7d7c9;box-shadow:0 12px 23px rgba(9,39,31,.07)}
+.capability-card:hover{transform:translateY(-5px);border-color:#b7d7c9;box-shadow:0 16px 32px rgba(9,39,31,.08)}
+.capability-symbol{transition:transform .32s ease}
+.capability-card:hover .capability-symbol{transform:rotate(-5deg) scale(1.05)}
+.process-icon{transition:transform .28s ease,background .28s ease,color .28s ease}
+.process-flow article:hover .process-icon{transform:translateY(-3px) rotate(-5deg);background:rgba(216,185,108,.1)}
+.booking-flow-card{transition:transform .3s ease,box-shadow .3s ease}
+.booking-flow-card:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(9,39,31,.13)}
+.booking-steps{position:relative}
+.booking-steps::before{content:"";position:absolute;left:11px;top:29px;bottom:29px;width:1px;background:#dce6da;transform:scaleY(0);transform-origin:top;transition:transform .95s cubic-bezier(.2,.7,.2,1) .18s}
+.case-study.is-visible .booking-steps::before{transform:scaleY(1)}
+.booking-step{position:relative;z-index:1;transition:transform .22s ease}
+.booking-step>span{position:relative;z-index:1;background:#fffdf8}
+.booking-step:hover{transform:translateX(4px)}
+.browser-frame{transition:transform .35s ease,box-shadow .35s ease}
+.browser-frame:hover{transform:translateY(-4px);box-shadow:0 25px 45px rgba(9,39,31,.16)}
+.demo-choices button{transition:transform .22s ease,background .2s,border-color .2s,box-shadow .22s ease}
+.demo-choices button:hover{transform:translateY(-2px);border-color:#aad3c4;box-shadow:0 7px 14px rgba(9,39,31,.06)}
+.demo-message.message-swap{animation:demo-message-swap .34s cubic-bezier(.2,.7,.2,1) both}
+.desktop-nav a.is-active,.mobile-nav a.is-active{color:var(--teal);font-weight:800}
+.mobile-nav a.is-active{padding-left:8px;border-left:2px solid var(--gold)}
+.contact-form .button{transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+.contact-form .button:hover{box-shadow:0 10px 22px rgba(9,39,31,.14)}
+
+@keyframes ambient-glow{from{transform:translate3d(-8px,3px,0) scale(.94);opacity:.45}to{transform:translate3d(10px,18px,0) scale(1.08);opacity:.82}}
+@keyframes orbit-drift{from{transform:translate3d(0,0,0) rotate(-7deg)}to{transform:translate3d(-8px,11px,0) rotate(8deg)}}
+@keyframes soft-reveal{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
+@keyframes demo-message-swap{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes status-breathe{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(69,185,163,.22)}50%{opacity:.72;box-shadow:0 0 0 5px rgba(69,185,163,0)}}
+
+@media (max-width:620px){
+  .hero h1{letter-spacing:-.04em}
+  .hero h1 em{letter-spacing:-.02em}
+  .section-heading h2,.concierge-copy h2,.case-study-copy h3,.contact-intro h2,.thank-you-card h1{letter-spacing:-.035em}
+  .section-heading h2 em,.concierge-copy h2 em,.case-study-copy h3 em,.contact-intro h2 em,.thank-you-card h1 em{letter-spacing:-.015em}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
