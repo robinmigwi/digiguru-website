@@ -1,3 +1,14 @@
+// Contact configuration. The WhatsApp number lives here and nowhere else in the page logic.
+// Digits only, with country code and no plus sign. The structured data in index.html also lists it, because crawlers read that without running JavaScript.
+const WHATSAPP_NUMBER = '254181739987';
+const WHATSAPP_MESSAGE = 'Hello DigiGuru, I would like to talk about my customer journey.';
+
+document.querySelectorAll('[data-whatsapp-link]').forEach((link) => {
+  if (!WHATSAPP_NUMBER) return;
+  link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  link.target = '_blank';
+});
+
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-menu');
 const progressBar = document.querySelector('#page-progress-bar');
